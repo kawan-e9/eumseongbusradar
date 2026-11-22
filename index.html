@@ -377,6 +377,14 @@
 <meta name="theme-color" content="#0c141d" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="icon" href="./favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="./og-preview.svg" />
+<meta name="description" content="Eumseong Bus Radar — Jadwal real-time & offline bus koridor 대소·성본·무극·진천." />
+<meta property="og:title" content="Eumseong Bus Radar — 대소·성본·무극 시내 & 시외버스" />
+<meta property="og:description" content="Jadwal bus real-time, estimasi waktu tiba, dan navigasi offline untuk koridor 대소·성본·무극·진천." />
+<meta property="og:image" content="./og-preview.svg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="manifest" id="pwaManifestLink" href="./manifest.json" />
 <link rel="apple-touch-icon" href="./icon-192.png" />
 </head>
@@ -1587,6 +1595,14 @@ renderSavedSection(effDate); renderSearchResults(effDate); renderTransitOptions(
       if (peakEl) peakEl.checked = Boolean(state.settings.peakDelayAdvisor);
       if (noteInput) noteInput.value = state.tripNote || "";
     }
+
+    
+    window.addEventListener("offline", () => {
+      if (typeof showToast === "function") showToast("Mode Offline aktif · Jadwal tetap berjalan normal.");
+    });
+    window.addEventListener("online", () => {
+      if (typeof showToast === "function") showToast("Kembali online.");
+    });
 
     mountStaticIcons(); initMapGestures(); startBusSmoothLoop();
     setInterval(() => updateSlide3InteractiveMap(getEffectiveNow()), 160); hydrateUI(); renderAll(); setInterval(tickClock, 1000);

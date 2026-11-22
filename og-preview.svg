@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c141d"/>
+      <stop offset="55%" stop-color="#121b26"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="20%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#fee500" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0c141d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="80" y="90" width="1040" height="450" rx="36" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
+  <rect x="130" y="145" width="96" height="96" rx="26" fill="#fee500"/>
+  <rect x="154" y="167" width="48" height="44" rx="10" fill="none" stroke="#191919" stroke-width="5"/>
+  <line x1="154" y1="191" x2="202" y2="191" stroke="#191919" stroke-width="5"/>
+  <line x1="166" y1="211" x2="166" y2="219" stroke="#191919" stroke-width="5" stroke-linecap="round"/>
+  <line x1="190" y1="211" x2="190" y2="219" stroke="#191919" stroke-width="5" stroke-linecap="round"/>
+  <text x="256" y="190" fill="#f3f6fa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="44" font-weight="800">Eumseong Bus Radar</text>
+  <text x="256" y="232" fill="#9fb0c5" font-family="-apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif" font-size="24" font-weight="600">대소 · 성본 · 무극 · 진천 시내 &amp; 시외버스</text>
+  <line x1="180" y1="360" x2="1020" y2="360" stroke="rgba(255,255,255,0.16)" stroke-width="6" stroke-linecap="round"/>
+  <line x1="180" y1="360" x2="600" y2="360" stroke="#fee500" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="180" cy="360" r="14" fill="#fee500"/>
+  <circle cx="600" cy="360" r="16" fill="#1d6ef2" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="1020" cy="360" r="14" fill="#22c58b"/>
+  <text x="180" y="410" text-anchor="middle" fill="#f3f6fa" font-family="sans-serif" font-size="22" font-weight="700">무극터미널</text>
+  <text x="600" y="410" text-anchor="middle" fill="#fee500" font-family="sans-serif" font-size="22" font-weight="800">성본 (경유)</text>
+  <text x="1020" y="410" text-anchor="middle" fill="#f3f6fa" font-family="sans-serif" font-size="22" font-weight="700">대소 승강장</text>
+  <text x="130" y="495" fill="#9fb0c5" font-family="sans-serif" font-size="20" font-weight="600">Offline PWA · Estimasi Kedatangan · Peta Hub Interaktif</text>
+</svg>
