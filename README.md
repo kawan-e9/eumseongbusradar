@@ -1,20 +1,17 @@
-# Eumseong Bus Radar (대소·성본·무극·진천)
+# Eumseong Bus Radar (대소·성본·무극·진천) — Long-Term Edition
 
-PWA siap **offline** untuk memantau jadwal bus koridor **대소 · 성본 · 무극 · 진천**, lengkap dengan peta hub interaktif, simulasi waktu, dan penghitung batas aman keluar rumah.
+PWA siap **offline** untuk memantau jadwal bus koridor **대소 · 성본 · 무극 · 진천**, dirancang untuk pemakaian jangka panjang di GitHub Pages.
 
-## Isi Paket Siap Upload GitHub Pages
-- `index.html` — Aplikasi utama dengan path relatif (`./`), Open Graph `og-preview.png`, dan deteksi status *offline/online*.
+## Isi Paket (13 File Lengkap)
+- `index.html` — Aplikasi utama dengan tombol sinkronisasi cache di header, tag Open Graph lengkap, deteksi libur nasional Korea (`공휴일`), peringatan jadwal kadaluarsa (>6 bulan), serta fitur **Ekspor/Impor Backup (.json)**.
+- `schedules.json` — Data jadwal bus terpisah (`version`, `lastUpdated`, `koreanPublicHolidays`, `schedules`) agar mudah diedit tanpa menyentuh kode HTML/JS.
+- `sw.js` — *Service Worker* dengan strategi **Network-First** untuk `schedules.json` dan **Cache-First** untuk aset antarmuka, plus pembersihan otomatis cache versi lama.
 - `manifest.json` — Konfigurasi *Add to Home Screen* (`standalone`).
-- `sw.js` — *Service Worker* dengan pembersihan otomatis cache lama saat ganti versi `CACHE_NAME`.
-- `icon-192.png` & `icon-512.png` — Ikon PWA Android/umum.
-- `apple-touch-icon.png` — Ikon khusus layar utama iOS/Safari (`180x180`).
-- `favicon.ico` — Ikon tab browser.
-- `og-preview.png` — Pratinjau tautan (`1200x630`) yang kompatibel dengan KakaoTalk, WhatsApp, dan Telegram.
-- `tailwind.min.css` — Utilitas CSS lokal.
-- `robots.txt` & `sitemap.xml` — Metadata pengindeksan.
+- `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`, `favicon.ico` — Paket ikon lengkap Android, iOS/Safari, dan browser.
+- `og-preview.png` — Kartu pratinjau tautan (`1200×630`) untuk KakaoTalk, WhatsApp, dan Telegram.
+- `tailwind.min.css`, `robots.txt`, `sitemap.xml`, `README.md` — Utilitas pendukung & dokumentasi.
 
-## Langkah Upload ke GitHub Pages
-1. Ekstrak seluruh isi file ZIP ini.
-2. Upload semua file ke folder root repositori GitHub Anda (sejajar dengan `index.html`).
-3. Buka **Settings → Pages**, pilih branch `main` dan folder `/ (root)`, lalu klik **Save**.
-4. Tiap kali jadwal berubah di masa depan, naikkan nilai `CACHE_NAME` di `sw.js` (misalnya `v2026-12`) agar HP otomatis membersihkan cache lama.
+## Cara Update Jadwal di Masa Depan
+1. Buka file `schedules.json` langsung di repositori GitHub Anda (klik ikon pensil / *Edit*).
+2. Ubah jam bus yang berubah dan perbarui nilai `"lastUpdated"` (misalnya `"2027-03-01"`).
+3. Klik **Commit changes** — pengguna yang membuka aplikasi saat online akan langsung menerima pembaruan jadwal secara otomatis.

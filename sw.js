@@ -1,7 +1,8 @@
-const CACHE_NAME = 'eumseong-bus-radar-v2026-11';
+const CACHE_NAME = 'eumseong-bus-radar-v2026-11-r2';
 const ASSETS = [
   './',
   './index.html',
+  './schedules.json',
   './manifest.json',
   './favicon.ico',
   './icon-192.png',
@@ -37,6 +38,23 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+
+  if (url.pathname.endsWith('/schedules.json') || url.pathname.endsWith('schedules.json')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const copy = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetchPromise = fetch(event.request)
