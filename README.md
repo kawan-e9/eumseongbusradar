@@ -1,18 +1,20 @@
 # Eumseong Bus Radar (대소·성본·무극·진천)
 
-Aplikasi web progresif (PWA) ringan dan siap **offline** untuk memantau jadwal bus koridor **대소 · 성본 · 무극 · 진천**, lengkap dengan peta hub interaktif, simulasi jam, dan penghitung batas aman keluar rumah.
+PWA siap **offline** untuk memantau jadwal bus koridor **대소 · 성본 · 무극 · 진천**, lengkap dengan peta hub interaktif, simulasi waktu, dan penghitung batas aman keluar rumah.
 
-## Struktur File
-- `index.html` — Aplikasi utama (UI kaca iOS/One UI, jadwal lengkap, peta hub, pencarian, & favorit).
-- `manifest.json` — Konfigurasi instalasi PWA (*Add to Home Screen* di Android/iOS).
-- `sw.js` — Service Worker untuk caching aset agar aplikasi tetap berjalan cepat tanpa internet.
-- `icon-192.png` & `icon-512.png` — Ikon aplikasi layar utama & splash screen.
+## Isi Paket Siap Upload GitHub Pages
+- `index.html` — Aplikasi utama dengan path relatif (`./`), Open Graph `og-preview.png`, dan deteksi status *offline/online*.
+- `manifest.json` — Konfigurasi *Add to Home Screen* (`standalone`).
+- `sw.js` — *Service Worker* dengan pembersihan otomatis cache lama saat ganti versi `CACHE_NAME`.
+- `icon-192.png` & `icon-512.png` — Ikon PWA Android/umum.
+- `apple-touch-icon.png` — Ikon khusus layar utama iOS/Safari (`180x180`).
 - `favicon.ico` — Ikon tab browser.
-- `og-preview.svg` — Kartu pratinjau saat tautan dibagikan di WhatsApp/KakaoTalk.
-- `robots.txt` & `sitemap.xml` — Metadata pengindeksan untuk GitHub Pages.
-- `tailwind.min.css` — Utilitas CSS lokal pendukung mode offline.
+- `og-preview.png` — Pratinjau tautan (`1200x630`) yang kompatibel dengan KakaoTalk, WhatsApp, dan Telegram.
+- `tailwind.min.css` — Utilitas CSS lokal.
+- `robots.txt` & `sitemap.xml` — Metadata pengindeksan.
 
-## Cara Deploy ke GitHub Pages
+## Langkah Upload ke GitHub Pages
 1. Ekstrak seluruh isi file ZIP ini.
-2. Unggah semua 11 file ke root repositori GitHub Anda (sejajar dengan `index.html`).
+2. Upload semua file ke folder root repositori GitHub Anda (sejajar dengan `index.html`).
 3. Buka **Settings → Pages**, pilih branch `main` dan folder `/ (root)`, lalu klik **Save**.
+4. Tiap kali jadwal berubah di masa depan, naikkan nilai `CACHE_NAME` di `sw.js` (misalnya `v2026-12`) agar HP otomatis membersihkan cache lama.

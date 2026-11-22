@@ -377,16 +377,8 @@
 <meta name="theme-color" content="#0c141d" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="icon" href="./favicon.ico" sizes="any" />
-<link rel="icon" type="image/svg+xml" href="./og-preview.svg" />
-<meta name="description" content="Eumseong Bus Radar — Jadwal real-time & offline bus koridor 대소·성본·무극·진천." />
-<meta property="og:title" content="Eumseong Bus Radar — 대소·성본·무극 시내 & 시외버스" />
-<meta property="og:description" content="Jadwal bus real-time, estimasi waktu tiba, dan navigasi offline untuk koridor 대소·성본·무극·진천." />
-<meta property="og:image" content="./og-preview.svg" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
 <link rel="manifest" id="pwaManifestLink" href="./manifest.json" />
-<link rel="apple-touch-icon" href="./icon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 </head>
 <body>
   <div id="toastBanner" class="toast-banner" role="alert">
@@ -1597,6 +1589,20 @@ renderSavedSection(effDate); renderSearchResults(effDate); renderTransitOptions(
     }
 
     
+    function forceSyncBusCache() {
+      if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ type: "SKIP_AND_REFRESH" });
+      }
+      if ("caches" in window) {
+        caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))).then(() => {
+          if (typeof showToast === "function") showToast("Cache diperbarui · Memuat jadwal terbaru...");
+          setTimeout(() => location.reload(), 450);
+        }).catch(() => location.reload());
+      } else {
+        location.reload();
+      }
+    }
+
     window.addEventListener("offline", () => {
       if (typeof showToast === "function") showToast("Mode Offline aktif · Jadwal tetap berjalan normal.");
     });

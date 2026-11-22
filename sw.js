@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eumseong-bus-radar-v1';
+const CACHE_NAME = 'eumseong-bus-radar-v2026-11';
 const ASSETS = [
   './',
   './index.html',
@@ -6,7 +6,8 @@ const ASSETS = [
   './favicon.ico',
   './icon-192.png',
   './icon-512.png',
-  './og-preview.svg',
+  './apple-touch-icon.png',
+  './og-preview.png',
   './tailwind.min.css'
 ];
 
@@ -26,6 +27,12 @@ self.addEventListener('activate', (event) => {
     )
   );
   self.clients.claim();
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_AND_REFRESH') {
+    self.skipWaiting();
+  }
 });
 
 self.addEventListener('fetch', (event) => {
