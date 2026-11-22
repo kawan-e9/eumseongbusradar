@@ -48,25 +48,39 @@
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  html, body {
+  html {
+    background-color: var(--bg-grad-1);
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100%;
+  }
+
+  body {
     margin: 0;
     padding: 0;
     min-height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
     color: var(--text-main);
-    background:
+    background-color: var(--bg-grad-1);
+    background-image:
       radial-gradient(circle at 12% 10%, rgba(254, 229, 0, 0.22), transparent 40%),
       radial-gradient(circle at 88% 14%, rgba(29, 110, 242, 0.16), transparent 44%),
       radial-gradient(circle at 50% 92%, rgba(14, 165, 104, 0.16), transparent 48%),
       linear-gradient(160deg, var(--bg-grad-1), var(--bg-grad-2) 52%, var(--bg-grad-3));
     background-attachment: fixed;
     overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  [data-theme="dark"], [data-theme="dark"] body {
+    background-color: #0c141d;
   }
 
   .app-shell {
     max-width: 680px;
     margin: 0 auto;
-    padding: 12px 12px calc(var(--nav-height) + 74px);
+    padding: 14px 14px calc(var(--nav-height) + 56px);
   }
 
   .glass {
@@ -102,43 +116,42 @@
   .card-kicker .ui-ico { width: 13px; height: 13px; stroke-width: 2.2; }
   .star-btn .ui-ico { width: 17px; height: 17px; stroke-width: 1.9; }
 
-  .top-header { border-radius: 26px; padding: 13px 14px; margin-bottom: 12px; }
-  .header-row-main { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-  .brand-cluster { display: flex; align-items: center; gap: 9px; flex: 1; min-width: 0; }
+  .top-header { border-radius: 26px; padding: 14px 16px; margin-bottom: 12px; }
+  .header-row-main { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .brand-cluster { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; padding-right: 6px; }
   .brand-mark {
-    width: 38px; height: 38px; border-radius: 13px;
+    width: 36px; height: 36px; border-radius: 12px;
     background: var(--accent-kakao); color: var(--accent-kakao-text);
     display: flex; align-items: center; justify-content: center;
     font-weight: 800; flex-shrink: 0;
   }
   .brand-titles { flex: 1; min-width: 0; }
-  .brand-titles h1 { margin: 0; font-size: 14px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; white-space: nowrap; }
-  .brand-titles p { margin: 2px 0 0; font-size: 10px; color: var(--text-muted); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .brand-titles h1 { margin: 0; font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .brand-titles p { margin: 2px 0 0; font-size: 10px; color: var(--text-muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .header-actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
   .icon-btn {
     width: 31px; height: 31px; min-width: 31px; padding: 0; border-radius: 999px;
     border: 1px solid var(--glass-border); background: var(--chip-bg); color: var(--text-main);
-    font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center;
     cursor: pointer;
   }
 
   .clock-strip {
-    margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--line-subtle);
-    display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap;
+    margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line-subtle);
+    display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
   }
-  .live-clock-box { display: flex; align-items: center; gap: 7px; }
+  .live-clock-box { display: flex; align-items: center; gap: 8px; }
   .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); }
   .pulse-dot.sim { background: var(--accent-amber); }
-  .clock-digits { font-size: 15.5px; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .clock-date { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+  .clock-digits { font-size: 16px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .clock-date { font-size: 11.5px; color: var(--text-muted); font-weight: 600; }
 
-  .status-pills { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+  .status-pills { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .pill {
-    height: 23px; line-height: 1; display: inline-flex; align-items: center;
-    font-size: 10px; font-weight: 700; padding: 0 8px; border-radius: 999px;
+    height: 24px; line-height: 1; display: inline-flex; align-items: center;
+    font-size: 10.5px; font-weight: 700; padding: 0 9px; border-radius: 999px;
     background: var(--chip-bg); border: 1px solid var(--line-subtle); color: var(--text-main); cursor: pointer;
-    white-space: nowrap;
   }
   .pill.warn { background: rgba(217, 119, 6, 0.14); color: var(--accent-amber); }
   .pill.ok { background: rgba(14, 165, 104, 0.14); color: var(--accent-green); }
@@ -160,82 +173,95 @@
   .view-section { display: none; }
   .view-section.active { display: block; }
 
-  .card { border-radius: 24px; padding: 15px 14px; margin-bottom: 12px; }
+  .card { border-radius: 24px; padding: 16px; margin-bottom: 12px; }
   .card-kicker {
-    display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 800;
-    padding: 4px 9px; border-radius: 999px; background: var(--accent-kakao); color: var(--accent-kakao-text);
-    margin-bottom: 8px; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 800;
+    padding: 4px 10px; border-radius: 999px; background: var(--accent-kakao); color: var(--accent-kakao-text);
+    margin-bottom: 8px;
   }
-  .card-title { margin: 0 0 4px; font-size: 16px; font-weight: 800; line-height: 1.3; word-break: keep-all; }
-  .card-desc { margin: 0 0 12px; font-size: 12px; color: var(--text-muted); line-height: 1.45; word-break: keep-all; }
+  .card-title { margin: 0 0 4px; font-size: 15.5px; font-weight: 800; line-height: 1.32; }
+  .card-desc { margin: 0 0 12px; font-size: 11.5px; color: var(--text-muted); line-height: 1.45; }
+
+  .anchor-strip {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+    padding: 8px 11px; border-radius: 15px; background: var(--chip-bg); border: 1px solid var(--line-subtle);
+    margin-bottom: 10px; font-size: 11px;
+  }
+  .anchor-btns { display: flex; gap: 4px; flex-wrap: wrap; }
+  .anchor-btn {
+    border: 1px solid var(--line-subtle); background: transparent; color: var(--text-muted);
+    border-radius: 999px; padding: 4px 9px; font-size: 10.5px; font-weight: 700; cursor: pointer;
+  }
+  .anchor-btn.active { background: rgba(29, 110, 242, 0.16); color: var(--accent-blue); border-color: rgba(29, 110, 242, 0.35); }
 
   .seg-bar {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
     background: var(--chip-bg); padding: 4px; border-radius: 16px; border: 1px solid var(--line-subtle); margin-bottom: 12px;
   }
   .seg-btn {
     border: none; background: transparent; color: var(--text-muted);
     font-size: 10.5px; font-weight: 700; padding: 8px 4px; border-radius: 12px; cursor: pointer;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2;
+    white-space: nowrap; letter-spacing: -0.02em;
   }
   .seg-btn.active { background: var(--accent-kakao); color: var(--accent-kakao-text); }
 
   .action-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
   .btn-primary {
-    border: none; border-radius: 14px; padding: 9px 13px; font-size: 11.5px; font-weight: 800;
-    background: var(--accent-blue); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    border: none; border-radius: 14px; padding: 9px 14px; font-size: 12px; font-weight: 800;
+    background: var(--accent-blue); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
   }
   .btn-secondary {
-    border: 1px solid var(--line-subtle); border-radius: 14px; padding: 8px 11px; font-size: 11.5px; font-weight: 700;
-    background: var(--chip-bg); color: var(--text-main); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    border: 1px solid var(--line-subtle); border-radius: 14px; padding: 8px 12px; font-size: 12px; font-weight: 700;
+    background: var(--chip-bg); color: var(--text-main); cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
   }
-  .toggle-check { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); cursor: pointer; }
+  .toggle-check { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-muted); cursor: pointer; }
 
   .leave-banner {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    padding: 10px 12px; border-radius: 16px; background: var(--chip-bg); border: 1px solid var(--line-subtle);
-    margin-bottom: 10px; font-size: 11.5px; font-weight: 700; line-height: 1.35;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; line-height: 1.35;
+    padding: 10px 13px; border-radius: 17px; background: var(--chip-bg); border: 1px solid var(--line-subtle);
+    margin-bottom: 10px; font-size: 12px; font-weight: 700;
   }
+  .leave-banner > span:first-child { flex: 1; min-width: 0; }
   .leave-banner.urgent { background: rgba(217, 119, 6, 0.16); color: var(--accent-amber); }
   .leave-banner.good { background: rgba(14, 165, 104, 0.14); color: var(--accent-green); }
 
   .recovery-banner {
     display: none; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
-    padding: 10px 12px; border-radius: 16px; background: rgba(220, 38, 38, 0.11);
-    border: 1px solid rgba(220, 38, 38, 0.3); margin-bottom: 10px; font-size: 11.5px;
+    padding: 10px 13px; border-radius: 17px; background: rgba(220, 38, 38, 0.11);
+    border: 1px solid rgba(220, 38, 38, 0.3); margin-bottom: 10px; font-size: 12px;
   }
   .recovery-banner.show { display: flex; }
 
-  .bus-list { display: flex; flex-direction: column; gap: 8px; }
+  .bus-list { display: flex; flex-direction: column; gap: 7px; }
   .bus-item {
     display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    padding: 10px 11px; border-radius: 17px; background: var(--chip-bg); border: 1px solid var(--line-subtle); cursor: pointer;
+    padding: 10px 11px; border-radius: 18px; background: var(--chip-bg); border: 1px solid var(--line-subtle); cursor: pointer;
   }
   .bus-item.next-up {
     border-width: 1.5px; border-color: var(--accent-blue); background: rgba(29, 110, 242, 0.08);
     box-shadow: 0 6px 18px rgba(29, 110, 242, 0.14);
   }
-  .bus-item.passed { opacity: 0.56; padding: 9px 11px; border-style: dashed; }
+  .bus-item.passed { opacity: 0.44; padding: 9px 12px; border-style: dashed; }
   .bus-item.alarm-armed { border-color: rgba(217, 119, 6, 0.6); background: rgba(217, 119, 6, 0.11); }
 
-  .bus-time-col { min-width: 54px; flex-shrink: 0; }
-  .bus-time { font-size: 15.5px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.2; }
-  .bus-delta { font-size: 10px; font-weight: 700; margin-top: 2px; white-space: nowrap; }
+  .bus-time-col { min-width: 68px; }
+  .bus-time { font-size: 16px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .bus-delta { font-size: 10.5px; font-weight: 700; margin-top: 2px; white-space: nowrap; }
   .delta-soon { color: var(--accent-blue); }
   .delta-now { color: var(--accent-green); }
   .delta-passed { color: var(--text-muted); }
 
-  .bus-route-col { flex: 1; min-width: 0; word-break: keep-all; overflow-wrap: anywhere; }
-  .bus-route-main { font-size: 12.5px; font-weight: 700; line-height: 1.35; }
-  .bus-route-sub { font-size: 10.5px; color: var(--text-muted); margin-top: 2px; line-height: 1.3; }
-  .tag-eta { font-size: 10.5px; color: var(--text-muted); margin-top: 3px; font-weight: 600; line-height: 1.3; }
+  .bus-route-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .bus-route-main { font-size: 12px; font-weight: 800; line-height: 1.35; word-break: keep-all; }
+  .bus-route-sub { font-size: 10.5px; color: var(--text-muted); line-height: 1.35; word-break: keep-all; }
+  .tag-eta { font-size: 10px; color: var(--text-muted); line-height: 1.32; font-weight: 600; word-break: keep-all; }
 
-  .bus-right-col { display: flex; align-items: center; gap: 4px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; max-width: 96px; }
-  .tag-badge { font-size: 9.5px; font-weight: 800; padding: 2px 6px; border-radius: 999px; white-space: nowrap; }
+  .bus-right-col { display: flex; align-items: center; align-self: center; gap: 5px; flex-shrink: 0; }
+  .tag-badge { font-size: 10px; font-weight: 800; padding: 3px 7px; border-radius: 999px; white-space: nowrap; }
   .tag-weekend-no { background: rgba(220, 38, 38, 0.12); color: var(--accent-red); }
   .tag-alarm { background: rgba(217, 119, 6, 0.18); color: var(--accent-amber); }
   .tag-peak { background: rgba(29, 110, 242, 0.15); color: var(--accent-blue); }
-  .star-btn { border: none; background: transparent; color: var(--accent-amber); cursor: pointer; padding: 2px; display: inline-flex; align-items: center; }
+  .star-btn { border: none; background: transparent; color: var(--accent-amber); cursor: pointer; padding: 2px 4px; }
 
   .map-canvas {
     position: relative; height: 465px; border-radius: 22px; overflow: hidden;
@@ -260,7 +286,7 @@
   .map-node { position: absolute; transform: translate(-50%, -50%); border: 1.5px solid rgba(255, 255, 255, 0.88); border-radius: 13px; padding: 5px 8px; font-size: 10.5px; font-weight: 800; background: rgba(16, 28, 42, 0.95); color: #f3f6fa; cursor: pointer; white-space: nowrap; max-width: 44%; overflow: hidden; text-overflow: ellipsis; z-index: 3; transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease; }
   .map-node.active { background: var(--accent-kakao); color: var(--accent-kakao-text); border-color: #ffffff; transform: translate(-50%, -50%) scale(1.08); z-index: 5; }
   .map-node.dest-picked { background: #38bdf8; color: #09131d; border-color: #ffffff; transform: translate(-50%, -50%) scale(1.06); z-index: 5; }
-  .map-info-hud { position: absolute; left: 10px; right: 10px; bottom: 62px; padding: 9px 12px; border-radius: 15px; background: rgba(12, 22, 34, 0.92); border: 1px solid rgba(255, 255, 255, 0.16); color: #f3f6fa; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 6; }
+  .map-info-hud { position: absolute; left: 10px; right: 10px; bottom: 64px; padding: 7px 11px; border-radius: 14px; background: rgba(12, 22, 34, 0.93); border: 1px solid rgba(255, 255, 255, 0.16); color: #f3f6fa; display: flex; align-items: center; justify-content: space-between; gap: 8px; z-index: 6; }
   .map-legend-bar { position: absolute; left: 8px; right: 8px; bottom: 8px; display: flex; align-items: center; justify-content: flex-start; gap: 4px; flex-wrap: wrap; padding: 5px 7px; border-radius: 13px; background: rgba(12, 22, 34, 0.92); border: 1px solid rgba(255, 255, 255, 0.14); color: #dbe6f3; font-size: 9.5px; font-weight: 700; z-index: 6; }
   .leg-pill { border: 1px solid transparent; background: transparent; color: #dbe6f3; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
   .leg-pill.active { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.28); color: #fff; }
@@ -294,7 +320,7 @@
   textarea.quick-import { width: 100%; min-height: 74px; border-radius: 13px; border: 1px solid var(--line-subtle); background: var(--chip-bg); color: var(--text-main); padding: 9px 11px; font-size: 12px; font-family: inherit; resize: vertical; margin-bottom: 8px; }
 
   .iphone-dock-wrap { position: fixed; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; padding: 0 12px; z-index: 40; pointer-events: none; }
-  .iphone-dock { pointer-events: auto; width: 100%; max-width: 540px; height: 64px; padding: 5px; border-radius: 999px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; background: var(--glass-bg-strong); backdrop-filter: blur(28px) saturate(185%); border: 1px solid var(--glass-border); box-shadow: 0 14px 36px rgba(15, 23, 42, 0.18); }
+  .iphone-dock { pointer-events: auto; width: 100%; max-width: 500px; height: 64px; padding: 5px; border-radius: 999px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; background: var(--glass-bg-strong); backdrop-filter: blur(28px) saturate(185%); border: 1px solid var(--glass-border); box-shadow: 0 14px 36px rgba(15, 23, 42, 0.18); }
   .dock-item { position: relative; height: 54px; border: none; background: transparent; color: var(--text-muted); border-radius: 999px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 10px; font-weight: 700; cursor: pointer; }
   .dock-item.active { background: rgba(254, 229, 0, 0.26); color: var(--text-main); }
   .dock-badge { position: absolute; top: 5px; right: 12px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 999px; background: var(--accent-blue); color: #fff; font-size: 9.5px; font-weight: 800; display: none; align-items: center; justify-content: center; }
@@ -305,7 +331,53 @@
 
   .empty-state { text-align: center; padding: 22px 14px; font-size: 12.5px; color: var(--text-muted); background: var(--chip-bg); border-radius: 18px; border: 1px dashed var(--line-subtle); }
   .note-box { font-size: 11.5px; color: var(--text-muted); background: var(--chip-bg); border-left: 3px solid var(--accent-kakao); padding: 9px 12px; border-radius: 12px; margin-top: 10px; }
+
+  .ios-carousel-wrap { margin-bottom: 12px; }
+  .ios-carousel {
+    display: flex; align-items: flex-start; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px;
+  }
+  .ios-carousel::-webkit-scrollbar { display: none; }
+  .ios-slide {
+    flex: 0 0 100%; width: 100%; min-width: 0; max-width: 100%;
+    scroll-snap-align: start; border-radius: 18px; padding: 11px 12px;
+    background: var(--chip-bg); border: 1px solid var(--line-subtle); overflow: hidden;
+  }
+  .ios-slide * { max-width: 100%; box-sizing: border-box; }
+  .ios-slide-head {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 10.5px; font-weight: 800; color: var(--accent-blue);
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .ios-dots { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 7px; }
+  .ios-dot {
+    width: 6px; height: 6px; border-radius: 999px; background: rgba(120, 130, 145, 0.35);
+    border: none; padding: 0; cursor: pointer; transition: width 0.2s ease, background 0.2s ease;
+  }
+  .ios-dot.active { width: 18px; background: var(--accent-blue); }
+
+  .bus-swipe-shell { position: relative; border-radius: 18px; overflow: hidden; }
+  .bus-swipe-bg {
+    position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 16px; font-size: 11px; font-weight: 800; border-radius: 18px;
+    background: linear-gradient(90deg, rgba(29, 110, 242, 0.22), rgba(254, 229, 0, 0.28));
+    color: var(--text-main); pointer-events: none; opacity: 0; transition: opacity 0.14s ease;
+  }
+  .bus-swipe-shell.is-swiping .bus-swipe-bg { opacity: 1; }
+  .bus-item {
+    position: relative; z-index: 2; background: #ffffff;
+    transition: transform 0.18s ease-out, border-color 0.15s ease; touch-action: pan-y;
+  }
+  [data-theme="dark"] .bus-item {
+    background: #142030;
+  }
+  .bus-time-col { min-width: 72px; flex-shrink: 0; }
+
 </style>
+<meta name="theme-color" content="#0c141d" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="manifest" id="pwaManifestLink" href="" />
 </head>
 <body>
   <div id="toastBanner" class="toast-banner" role="alert">
@@ -324,7 +396,6 @@
           </div>
         </div>
         <div class="header-actions">
-          <button class="icon-btn" onclick="openPocketGlance()" title="Mode Kilat"><span id="glanceIcoSlot"></span></button>
           <button class="icon-btn" id="simToggleBtn" onclick="toggleSimDrawer()" title="Simulasi Jam"><span id="simIcoSlot"></span></button>
           <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Ganti Tema"><span id="themeIcon"></span></button>
         </div>
@@ -337,9 +408,8 @@
           <span class="clock-date" id="liveDate">Memuat...</span>
         </div>
         <div class="status-pills">
-          <button type="button" class="pill" id="hdrNextBusPill" style="background:rgba(29,110,242,0.12);color:var(--accent-blue);border-color:rgba(29,110,242,0.25);" onclick="armNextCorridorBus()">Next --:--</button>
+          <button type="button" class="pill" id="hdrNextBusPill" style="background:rgba(29,110,242,0.12);color:var(--accent-blue);border-color:rgba(29,110,242,0.25);" onclick="copyNextBusSummary()">Next --:--</button>
           <button type="button" class="pill" id="dayStatusPill" onclick="toggleWeekendFilterHint()">Hari</button>
-          <button type="button" class="pill ok" id="autoStatusPill" onclick="switchToAlarmTab()">Auto 4/4</button>
         </div>
       </div>
 
@@ -362,37 +432,67 @@
     <section class="view-section active" id="view-home">
       <div class="card glass-strong">
         <div class="card-kicker"><span id="kickerHomeIco"></span> PRIORITAS UTAMA · 무극·대소·성본·진천</div>
-        <h2 class="card-title">Koridor 무극(Mugeuk) · 대소(Daeso) · 성본(Seongbon) · 진천(Jincheon)</h2>
-        <p class="card-desc">무극→성본 ~10–15분 · 대소→성본 ~5–10분. Ketuk jadwal untuk memasang alarm.</p>
+        <h2 class="card-title">무극 · 성본 · 대소 · 진천 버스 레이더</h2>
+        <p class="card-desc">무극↔성본 ~10–15분 · 대소↔성본 ~5–10분 · Geser jadwal untuk alarm</p>
 
-        <div class="seg-bar">
-          <button class="seg-btn active" data-dir="ALL" onclick="setCorridorDir('ALL', this)">Semua</button>
-          <button class="seg-btn" data-dir="M2D" onclick="setCorridorDir('M2D', this)">무극→대소</button>
-          <button class="seg-btn" data-dir="D2M" onclick="setCorridorDir('D2M', this)">대소→무극</button>
-        </div>
+        <div class="ios-carousel-wrap">
+          <div class="ios-carousel" id="prioritasCarousel" onscroll="onCarouselScroll(this)">
+            <div class="ios-slide">
+              <div class="ios-slide-head">
+                <span>1/2 · Bus Terdekat Akan Lewat</span>
+                <span id="slide1AnchorBadge" style="color:var(--accent-blue);font-weight:800;">Rute : 선본</span>
+              </div>
+              <div id="slide1NextBusCard" style="padding:9px 10px;border-radius:14px;background:var(--glass-bg-strong);border:1px solid rgba(29,110,242,0.28);margin-bottom:8px;overflow:hidden;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0;">
+                  <div style="display:flex;align-items:center;gap:5px;min-width:0;overflow:hidden;">
+                    <span id="slide1BusTime" style="font-size:16px;font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap;">--:--</span>
+                    <span id="slide1BusNo" style="font-size:10px;font-weight:800;padding:1px 5px;border-radius:6px;background:rgba(29,110,242,0.14);color:var(--accent-blue);white-space:nowrap;">--</span>
+                    <span id="slide1BusDirTag" style="font-size:10px;font-weight:700;color:var(--accent-green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></span>
+                  </div>
+                  <span id="slide1BusDelta" style="font-size:11px;font-weight:800;color:var(--accent-blue);white-space:nowrap;flex-shrink:0;">--</span>
+                </div>
+                <div id="slide1BusRoute" style="font-size:11.5px;font-weight:700;margin-top:4px;line-height:1.35;word-break:break-word;">Memuat rute bus...</div>
+                <div id="slide1BusStopsDetail" style="font-size:10px;color:var(--text-muted);margin-top:2px;line-height:1.35;word-break:break-word;"></div>
 
-        <div class="action-row">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <button class="btn-primary" onclick="armNextCorridorBus()">
-              <span id="btnAlarmNearIco"></span>
-              <span>Alarm Bus Terdekat</span>
-            </button>
-            <button class="btn-secondary" onclick="copyNextBusSummary()">Salin Info</button>
+              </div>
+              <div class="leave-banner good" id="leaveByBanner" style="margin-bottom:8px;padding:8px 11px;font-size:11.5px;">
+                <span id="leaveByText">Batas aman keluar: menghitung...</span>
+                <span id="leaveByCountdown" style="font-variant-numeric:tabular-nums;">--m</span>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                </div>
+                <label class="toggle-check" style="font-size:11px;">
+                  <input type="checkbox" id="hidePassedHome" onchange="renderAll()" />
+                  <span>Sembunyikan lewat</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="ios-slide">
+              <div class="ios-slide-head">
+                <span>2/2 · Filter Arah &amp; Titik Acuan</span>
+                <span style="color:var(--text-muted);font-weight:700;">Geser ⇄</span>
+              </div>
+              <div class="seg-bar" style="margin-bottom:8px;">
+                <button class="seg-btn active" data-dir="ALL" onclick="setCorridorDir('ALL', this)">Semua Arah</button>
+                <button class="seg-btn" data-dir="M2D" onclick="setCorridorDir('M2D', this)">무극→성본→대소</button>
+                <button class="seg-btn" data-dir="D2M" onclick="setCorridorDir('D2M', this)">대소→성본→무극</button>
+              </div>
+              <div class="anchor-strip" style="margin-bottom:0;padding:6px 8px;">
+                <span style="font-weight:700;color:var(--text-muted);">Acuan: <strong id="anchorLabel" style="color:var(--accent-blue);">성본 (GS25)</strong></span>
+                <div class="anchor-btns">
+                  <button type="button" class="anchor-btn active" data-anchor="SEONGBON" onclick="setCountdownAnchor('SEONGBON', this)">성본</button>
+                  <button type="button" class="anchor-btn" data-anchor="MUGEUK" onclick="setCountdownAnchor('MUGEUK', this)">무극</button>
+                  <button type="button" class="anchor-btn" data-anchor="DAESO" onclick="setCountdownAnchor('DAESO', this)">대소</button>
+                </div>
+              </div>
+            </div>
+
+          <div class="ios-dots" id="prioritasDots">
+            <button type="button" class="ios-dot active" onclick="goCarouselSlide(0)" aria-label="Slide 1"></button>
+            <button type="button" class="ios-dot" onclick="goCarouselSlide(1)" aria-label="Slide 2"></button>
           </div>
-          <label class="toggle-check">
-            <input type="checkbox" id="hidePassedHome" onchange="renderAll(true)" />
-            <span>Sembunyikan yang lewat</span>
-          </label>
-        </div>
-
-        <div class="leave-banner good" id="leaveByBanner">
-          <span id="leaveByText">Batas aman keluar: menghitung...</span>
-          <span id="leaveByCountdown" style="font-variant-numeric:tabular-nums;">--m</span>
-        </div>
-
-        <div class="recovery-banner" id="recoveryBanner">
-          <div id="recoveryText">Bus sebelumnya baru lewat.</div>
-          <button class="btn-secondary" id="recoveryArmBtn">Alarm Pengganti</button>
         </div>
 
         <div class="bus-list" id="homeCorridorList"></div>
@@ -408,40 +508,45 @@
         <div class="map-canvas" id="hubMap">
           <div class="map-top-controls">
             <div class="map-ctrl-group">
-              <button class="map-ctrl-btn active" id="mapModeInspectBtn" onclick="setMapMode('INSPECT')">Pilih Hub</button>
-              <button class="map-ctrl-btn" id="mapModeRouteBtn" onclick="setMapMode('ROUTE')">Rute Dari→Ke</button>
-            </div>
-            <div class="map-ctrl-group">
-              <button class="map-ctrl-btn" onclick="zoomMap(0.18)">+</button>
-              <button class="map-ctrl-btn" onclick="zoomMap(-0.18)">−</button>
-              <button class="map-ctrl-btn" onclick="resetMapView()">Reset</button>
-              <button class="map-ctrl-btn" onclick="toggleExpandMap()">⛶</button>
+              <button class="map-ctrl-btn active" onclick="resetMapView()">Reset Peta</button>
             </div>
           </div>
 
           <div class="map-stage" id="mapStage">
-            <svg class="map-svg-layer" viewBox="0 0 400 360" preserveAspectRatio="none" aria-hidden="true">
-              <path id="svgPathMain" d="M 104 76 L 200 137 L 296 76" fill="none" stroke="#fee500" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
-              <path id="svgPathInter" d="M 104 76 L 200 137 L 296 198" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.88"/>
-              <path id="svgPathJin" d="M 104 198 L 200 137 L 296 76" fill="none" stroke="#f97316" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.88"/>
-              <path id="svgPathCity" d="M 104 198 L 296 198" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round" opacity="0.85"/>
-              <path id="svgFlowActive" class="route-flow" d="M 104 76 L 200 137 L 296 76" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
-              <circle cx="200" cy="137" r="14" fill="rgba(254,229,0,0.14)" stroke="#fee500" stroke-width="1.5"/>
+            <svg class="map-svg-layer" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+              <path id="svgPathMain" d="M 80 75 L 200 132 L 320 75" fill="none" stroke="#fee500" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+              <path id="svgPathInter" d="M 80 75 L 200 132 L 312 189" fill="none" stroke="#38bdf8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+              <path id="svgPathJin" d="M 88 189 L 200 132 L 320 75" fill="none" stroke="#f97316" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+              <path id="svgPathCity" d="M 88 189 L 312 189" fill="none" stroke="#22c55e" stroke-width="2.8" stroke-dasharray="6 4" stroke-linecap="round" opacity="0.82"/>
+              <path id="svgSelectedRoute" d="M 80 75 L 200 132 L 320 75" fill="none" stroke="#fee500" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+              <path id="svgFlowActive" class="route-flow" d="M 80 75 L 200 132 L 320 75" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
             </svg>
+            <div id="liveTrackBar" style="position:absolute;left:18%;right:18%;top:12.5%;z-index:4;background:rgba(12,22,34,0.92);border:1px solid rgba(254,229,0,0.55);border-radius:12px;padding:5px 10px;pointer-events:none;box-shadow:0 6px 16px rgba(0,0,0,0.45);">
+              <div style="display:flex;align-items:center;justify-content:space-between;font-size:9.5px;font-weight:800;color:#fee500;margin-bottom:4px;">
+                <span id="trackOriginLbl">무극</span>
+                <span id="trackMidLbl" style="color:#9fb0c5;">성본</span>
+                <span id="trackDestLbl">대소</span>
+              </div>
+              <div style="position:relative;height:6px;border-radius:999px;background:rgba(255,255,255,0.14);">
+                <div id="trackProgressFill" style="position:absolute;left:0;top:0;bottom:0;width:15%;border-radius:999px;background:#fee500;transition:width 0.35s linear;"></div>
+                <div id="liveBusBadge" style="position:absolute;left:15%;top:50%;transform:translate(-50%,-50%);background:#fee500;color:#0b1622;border:1.5px solid #0b1622;border-radius:999px;padding:1px 6px;font-size:9px;font-weight:900;white-space:nowrap;transition:left 0.35s linear;">🚌</div>
+              </div>
+            </div>
 
-            <button class="map-node" data-hub="MUGEUK_TERM" style="left: 26%; top: 22%;" onclick="onMapNodeTap('MUGEUK_TERM')">무극터미널</button>
-            <button class="map-node active" data-hub="DAESO_STOP" style="left: 74%; top: 22%;" onclick="onMapNodeTap('DAESO_STOP')">대소 승강장</button>
-            <button class="map-node" data-hub="SEONGBON" style="left: 50%; top: 40%;" onclick="onMapNodeTap('SEONGBON')">성본 (경유)</button>
-            <button class="map-node" data-hub="JINCHEON_LINE" style="left: 26%; top: 58%;" onclick="onMapNodeTap('JINCHEON_LINE')">진천·이월·광혜</button>
-            <button class="map-node" data-hub="EUMSEONG_CITY" style="left: 74%; top: 58%;" onclick="onMapNodeTap('EUMSEONG_CITY')">음성·감곡·혁신</button>
+            <button class="map-node" data-hub="MUGEUK_TERM" style="left: 20%; top: 25%;" onclick="onMapNodeTap('MUGEUK_TERM')">무극터미널</button>
+            <button class="map-node active" data-hub="DAESO_STOP" style="left: 80%; top: 25%;" onclick="onMapNodeTap('DAESO_STOP')">대소 승강장</button>
+            <button class="map-node" data-hub="SEONGBON" style="left: 50%; top: 44%;" onclick="onMapNodeTap('SEONGBON')">성본 (경유)</button>
+            <button class="map-node" data-hub="JINCHEON_LINE" style="left: 22%; top: 63%;" onclick="onMapNodeTap('JINCHEON_LINE')">진천·이월·광혜</button>
+            <button class="map-node" data-hub="EUMSEONG_CITY" style="left: 78%; top: 63%;" onclick="onMapNodeTap('EUMSEONG_CITY')">음성·감곡·혁신</button>
           </div>
 
           <div class="map-info-hud" id="mapInfoHud">
-            <div>
+            <div style="flex:1;min-width:0;">
               <div style="font-size:11.5px;font-weight:800;" id="mapHudTitle">대소 승강장 · Next --:--</div>
               <div style="font-size:10px;color:#9fb0c5;margin-top:2px;" id="mapHudSub">Geser peta untuk pan · Ketuk simpul atau jalur</div>
+              <div id="mapLiveTrackNote" style="font-size:10px;color:#fee500;font-weight:700;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
             </div>
-            <button class="btn-primary" style="padding:6px 10px;font-size:11px;flex-shrink:0;" id="mapHudAlarmBtn">Alarm</button>
+            
           </div>
 
           <div class="map-legend-bar">
@@ -457,7 +562,6 @@
           <label for="hubSelect">Pilih Papan / Hub</label>
           <select id="hubSelect" onchange="selectHub(this.value)">
             <option value="DAESO_STOP">대소 승강장 — 무극↔성본↔대소</option>
-            <option value="SEONGBON">성본 (경유) — 모든 성본 정차·경유 노선</option>
             <option value="BOARD_JINCHEON">진천 시내버스 (9/1 변경) — 진천→이월·광혜·대소·성본·무극</option>
             <option value="MUGEUK_TERM">무극터미널 — 시외버스 (청주·충주·진천·음성·장호원·증평·혁신)</option>
             <option value="BOARD_GAMGOK_MUGEUK">감곡→무극 · 급행(금왕·대소·혁신)</option>
@@ -492,51 +596,6 @@
             </div>
           </div>
           <div class="bus-list" id="transitResultList"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="view-section" id="view-alarm">
-      <div class="card glass-strong">
-        <div class="card-kicker"><span id="kickerAlarmIco"></span> ALARM AKTUAL &amp; OTOMATISASI</div>
-        <h2 class="card-title">Alarm Keberangkatan &amp; Aturan Otomatis</h2>
-        <p class="card-desc">Kelola alarm aktif dan otomatisasi harian.</p>
-
-        <div class="grid-2">
-          <div class="field-box">
-            <label for="leadMinutesInput">Ingatkan sebelum bus (menit)</label>
-            <input type="number" id="leadMinutesInput" min="1" max="60" value="10" onchange="updateSettings()" />
-          </div>
-          <div class="field-box">
-            <label for="walkBufferInput">Waktu jalan ke halte (menit)</label>
-            <input type="number" id="walkBufferInput" min="0" max="45" value="5" onchange="updateSettings()" />
-          </div>
-        </div>
-
-        <div class="note-box" id="readinessSummary">Siap berangkat: --:--</div>
-
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0 8px;">
-          <h3 style="font-size: 13.5px; margin: 0;">Daftar Alarm Aktif</h3>
-          <button class="btn-secondary" style="padding:5px 10px;font-size:11px;" onclick="playBeep();showToast('Tes bunyi alarm aktif.');">Tes Bunyi</button>
-        </div>
-        <div class="bus-list" id="alarmListContainer" style="margin-bottom: 14px;"></div>
-
-        <h3 style="font-size: 13.5px; margin: 14px 0 8px;">Otomatisasi Cerdas</h3>
-        <div class="auto-rule">
-          <div><strong>Auto-Arm Bus Koridor Terdekat</strong><span>Otomatis memasang 1 alarm pengingat untuk bus koridor berikutnya saat alarm kosong.</span></div>
-          <label class="switch"><input type="checkbox" id="autoArmNextToggle" onchange="updateSettings()" /><span class="slider-pill"></span></label>
-        </div>
-        <div class="auto-rule">
-          <div><strong>Auto-Bersihkan Alarm Lewat</strong><span>Menonaktifkan alarm yang baru saja lewat (dalam 60 menit terakhir).</span></div>
-          <label class="switch"><input type="checkbox" id="autoCleanAlarmToggle" checked onchange="updateSettings()" /><span class="slider-pill"></span></label>
-        </div>
-        <div class="auto-rule">
-          <div><strong>Peringatan Akhir Pekan &amp; Libur</strong><span>Memberi tanda khusus pada jadwal bertanda libur saat hari Sabtu/Minggu.</span></div>
-          <label class="switch"><input type="checkbox" id="autoWeekendWarnToggle" checked onchange="updateSettings()" /><span class="slider-pill"></span></label>
-        </div>
-        <div class="auto-rule">
-          <div><strong>Peak Delay &amp; 성본·이월 ETA Advisor</strong><span>Menambah buffer jam sibuk (07:00–09:00 &amp; 17:00–19:00) dan menghitung estimasi tiba di 성본 / 이월.</span></div>
-          <label class="switch"><input type="checkbox" id="peakDelayToggle" checked onchange="updateSettings()" /><span class="slider-pill"></span></label>
         </div>
       </div>
     </section>
@@ -583,37 +642,23 @@
           </div>
         </div>
 
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px;">
           <button class="btn-secondary" onclick="quickSearchKey('무극')">무극</button>
           <button class="btn-secondary" onclick="quickSearchKey('대소')">대소</button>
           <button class="btn-secondary" onclick="quickSearchKey('성본')">성본</button>
           <button class="btn-secondary" onclick="quickSearchKey('진천')">진천</button>
           <button class="btn-secondary" onclick="quickSearchKey('감곡')">감곡</button>
+          <button class="btn-secondary" onclick="quickSearchKey('초평')">초평</button>
+          <button class="btn-secondary" onclick="quickSearchKey('증평')">증평</button>
           <button class="btn-secondary" onclick="quickSearchKey('인천공항')">인천공항</button>
+          <button class="btn-secondary" style="margin-left:auto;color:var(--accent-red);" onclick="resetSearchFilters()">Reset</button>
         </div>
 
         <div class="bus-list" id="searchResultsList"></div>
 
-        <div class="note-box" style="margin-top:14px;">
-          <strong>Quick Import / Paste Jadwal Baru (1 baris = JAM | ASAL | TUJUAN | CATATAN)</strong>
-          <textarea class="quick-import" id="quickImportBox" placeholder="08:05 | 무극 | 성본·대소 | Jadwal tambahan"></textarea>
-          <button class="btn-secondary" onclick="importQuickSchedules()">Gabungkan ke Jadwal Lokal</button>
-        </div>
       </div>
     </section>
 
-    <div class="glance-overlay" id="glanceOverlay" onclick="if(event.target===this)closePocketGlance()">
-      <div class="glance-card">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <span class="card-kicker" style="margin:0;">MODE KILAT · POCKET GLANCE</span>
-          <button class="btn-secondary" onclick="closePocketGlance()">Tutup</button>
-        </div>
-        <div class="glance-big-clock" id="glanceClock">--:--:--</div>
-        <div class="clock-date" id="glanceDate">---</div>
-        <div class="glance-next-box" id="glanceNextBox">Mencari bus terdekat...</div>
-        <button class="btn-primary" style="width:100%;justify-content:center;" id="glanceArmBtn">Pasang Alarm Bus Terdekat</button>
-      </div>
-    </div>
   </div>
 
   <nav class="iphone-dock-wrap" aria-label="Navigasi Utama">
@@ -625,11 +670,6 @@
       <button class="dock-item" data-tab="map" onclick="switchTab('map', this)">
         <span class="dock-icon" id="dockMapIco"></span>
         <span>Peta Hub</span>
-      </button>
-      <button class="dock-item" data-tab="alarm" onclick="switchTab('alarm', this)">
-        <span class="dock-icon" id="dockAlarmIco"></span>
-        <span>Alarm</span>
-        <span class="dock-badge" id="dockAlarmBadge" style="display:none;">0</span>
       </button>
       <button class="dock-item" data-tab="saved" onclick="switchTab('saved', this)">
         <span class="dock-icon" id="dockSavedIco"></span>
@@ -644,7 +684,7 @@
   </nav>
 
   <script>
-    const BUS_SCHEDULES = [{"id": "d1-m2d-0620", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "06:20", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-0640", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "06:40", "origin": "무극", "stops": "성본·대소·내산·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-0720", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "07:20", "origin": "무극", "stops": "성본·대소·광혜·광혜고·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-0750", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "07:50", "origin": "무극", "stops": "성본·대소", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-0810", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "08:10", "origin": "무극", "stops": "성본·대소, 소석", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-0840", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "08:40", "origin": "무극", "stops": "성본·대소·광혜·선수촌·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-0930", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "09:30", "origin": "무극", "stops": "성본·대소·내산·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1020", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "10:20", "origin": "무극", "stops": "성본·대소", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1120", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "11:20", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1210", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "12:10", "origin": "도청2리", "stops": "도청2리·성본·대소", "note": "성본 경유"}, {"id": "d1-m2d-1300", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "13:00", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1400", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "14:00", "origin": "무극", "stops": "성본·대소·내산·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1515", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "15:15", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1540", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "15:40", "origin": "무극", "stops": "성본·대소·성미·삼성", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1620", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "16:20", "origin": "무극", "stops": "성본·대소·소석", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1720", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "17:20", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1810", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "18:10", "origin": "무극", "stops": "성본·대소", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1850", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "18:50", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-1920", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "19:20", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분"}, {"id": "d1-m2d-2010", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "20:10", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분"}, {"id": "d1-d2m-0700", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "07:00", "origin": "대소", "stops": "성본·무극·음성", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-0710", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "07:10", "origin": "대소", "stops": "본대2·무극", "note": "대소 출발"}, {"id": "d1-d2m-0745", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "07:45", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-0820", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "08:20", "origin": "대소", "stops": "성본·도청2리", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-0900", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "09:00", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-0920", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "09:20", "origin": "대소", "stops": "성본·도청2리", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-0950", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "09:50", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1050", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "10:50", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1150", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "11:50", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1240", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "12:40", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1330", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "13:30", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1420", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "14:20", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1520", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "15:20", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1600", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "16:00", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1650", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "16:50", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1720", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "17:20", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1745", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "17:45", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1840", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "18:40", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-1920", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "19:20", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "d1-d2m-2110", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "21:10", "origin": "대소", "stops": "성본", "note": "대소→성본 ~5–10분"}, {"id": "b6-ig-0615", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:15", "origin": "진천", "stops": "이월(06:40)·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b6-ig-0640", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:40", "origin": "진천", "stops": "광혜·대소·성미·삼성·무극", "note": "9/1 변경"}, {"id": "b6-ig-0730", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "07:30", "origin": "진천", "stops": "이월(07:50)·광고·광혜·대소·삼성·무극", "note": "9/1 변경"}, {"id": "b6-ig-0820", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "08:20", "origin": "진천", "stops": "이월(08:40)·광혜·대소·성미·청·삼·무극", "note": "9/1 변경"}, {"id": "b6-ig-1010", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "10:10", "origin": "진천", "stops": "이월(10:30)·광혜·대소·삼성·무극", "note": "9/1 변경"}, {"id": "b6-ig-1100", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "11:00", "origin": "진천", "stops": "이월(11:20)·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b6-ig-1240", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "12:40", "origin": "진천", "stops": "이월(13:00)·선수촌·광혜·대소·무극", "note": "9/1 변경"}, {"id": "b6-ig-1330", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "13:30", "origin": "진천", "stops": "이월(13:50)·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b6-ig-1510", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "15:10", "origin": "진천", "stops": "이월(15:30)·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b6-ig-1650", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "16:50", "origin": "진천", "stops": "이월(17:10)·선수촌·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b6-ig-1830", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "18:30", "origin": "진천", "stops": "이월(18:50)·선수촌·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b6-ig-1920", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "19:20", "origin": "진천", "stops": "이월(19:40)·광혜·대소·부윤·무극", "note": "9/1 변경"}, {"id": "b6-ig-2020", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "20:20", "origin": "진천", "stops": "이월(20:40)·광혜·대소·성본·무극", "note": "9/1 변경"}, {"id": "b5-cj-0645", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "06:45", "origin": "무극터미널", "stops": "청주(청주대) · 광혜원·진천 경유", "note": "무극터미널 시외"}, {"id": "b5-cj-0855", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:55", "origin": "무극터미널", "stops": "청주(청주대) · 진천", "note": "무극터미널 시외"}, {"id": "b5-cj-1125", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "11:25", "origin": "무극터미널", "stops": "청주(청주대) · 진천", "note": "무극터미널 시외"}, {"id": "b5-cj-1300", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:00", "origin": "무극터미널", "stops": "청주(청주대) · 진천·혁신", "note": "무극터미널 시외"}, {"id": "b5-cj-1450", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:50", "origin": "무극터미널", "stops": "청주(청주대) · 진천", "note": "무극터미널 시외"}, {"id": "b5-cj-1650", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "16:50", "origin": "무극터미널", "stops": "청주(청주대) · 진천·혁신", "note": "무극터미널 시외"}, {"id": "b5-cj-1905", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "19:05", "origin": "무극터미널", "stops": "청주(청주대) · 진천·혁신", "note": "무극터미널 시외"}, {"id": "b5-cc-0850", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:50", "origin": "무극터미널", "stops": "충주(주덕) · 음성", "note": "무극터미널 시외"}, {"id": "b5-cc-1712", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "17:12", "origin": "무극터미널", "stops": "충주(주덕) · 음성", "note": "무극터미널 시외"}, {"id": "b5-cc-2000", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "20:00", "origin": "무극터미널", "stops": "충주(주덕) · 직통", "note": "직통"}, {"id": "b4-dsl-1400", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:00", "origin": "무극터미널", "stops": "동서울 방면", "note": "토,일,공휴일운행안함", "weekendNo": true}, {"id": "b4-me-1030", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "10:30", "origin": "무극·음성", "stops": "토,일,공휴일운행안함", "note": "토,일,공휴일운행안함", "weekendNo": true}, {"id": "b4-me-1140", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "11:40", "origin": "무극·음성", "stops": "토,일,공휴일운행안함", "note": "토,일,공휴일운행안함", "weekendNo": true}, {"id": "g1-0720", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "07:20", "origin": "감곡", "stops": "무극", "note": "감곡→무극"}, {"id": "g1-0750", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "07:50", "origin": "감곡", "stops": "무극", "note": "감곡→무극"}, {"id": "g1-0830", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "08:30", "origin": "감곡", "stops": "무극 · 복지회관", "note": "복지회관 경유"}, {"id": "g1-1410", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "14:10", "origin": "감곡", "stops": "무극 · 원당2·송곡2", "note": "원당2·송곡2 경유"}, {"id": "g1-1600", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "16:00", "origin": "감곡", "stops": "무극 · 원당2·송곡2", "note": "원당2·송곡2 경유"}, {"id": "g2-exp-0705", "board": "BOARD_GAMGOK_MUGEUK", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "07:05", "origin": "(급행) 감곡/무극", "stops": "금왕·대소", "note": "급행 · 금왕·대소"}, {"id": "g2-exp-1205", "board": "BOARD_GAMGOK_MUGEUK", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "12:05", "origin": "(급행) 감곡/무극", "stops": "금왕·대소", "note": "급행 · 금왕·대소"}, {"id": "g2-exp-1845", "board": "BOARD_GAMGOK_MUGEUK", "hub": "EUMSEONG_CITY", "category": "시내", "dir": "M2D", "time": "18:45", "origin": "(급행) 감곡/무극", "stops": "금왕·혁신도시", "note": "급행 · 금왕·혁신도시"}, {"id": "e94-m2e-0740", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "07:40", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "e94-e2m-0800", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "08:00", "origin": "음성", "stops": "무극 · 반도체고", "note": "9/4 변경"}, {"id": "sn-0710", "board": "BOARD_SEOUL_NAMBU", "hub": "JINCHEON_LINE", "category": "시외", "dir": "OTHER", "time": "07:10", "origin": "진천/음성권", "stops": "서울남부(서초동)", "note": "서울남부 방면"}, {"id": "sn-1020", "board": "BOARD_SEOUL_NAMBU", "hub": "EUMSEONG_CITY", "category": "시외", "dir": "OTHER", "time": "10:20", "origin": "서울남부/출발지", "stops": "덕산·혁신도시·진천", "note": "혁신도시·진천 경유"}, {"id": "sa-0810", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:10", "origin": "무극/음성권", "stops": "수원·안산", "note": "수원·안산 방면"}, {"id": "icn-0700", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "07:00", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행"}, {"id": "e94-m2e-0640", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "06:40", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "e94-m2e-0850", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "08:50", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "e94-m2e-1030", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "10:30", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "e94-m2e-1250", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "12:50", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "e94-m2e-1520", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "15:20", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "e94-m2e-1740", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "17:40", "origin": "무극", "stops": "음성", "note": "9/4 변경"}, {"id": "sa-1510", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "15:10", "origin": "무극/음성권", "stops": "수원·안산", "note": "수원·안산 방면"}, {"id": "ai-0720", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "07:20", "origin": "무극/음성권", "stops": "삼성·일죽·안산종점", "note": "안산종점 방면"}, {"id": "ai-1310", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:10", "origin": "무극/음성권", "stops": "삼성·일죽·안산·인천", "note": "안산·인천 방면"}, {"id": "ai-1830", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "18:30", "origin": "무극/음성권", "stops": "삼성·일죽·안산·인천", "note": "안산·인천 방면"}, {"id": "jp-1255", "board": "BOARD_SUWON_ICN", "hub": "EUMSEONG_CITY", "category": "시외", "dir": "OTHER", "time": "12:55", "origin": "무극/음성권", "stops": "혁신도시·증평", "note": "화·수 운행 참고"}, {"id": "cc-1945", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "19:45", "origin": "무극/음성권", "stops": "무극·충주", "note": "충주 방면"}, {"id": "icn-0530", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "05:30", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행"}, {"id": "icn-1300", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:00", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행"}, {"id": "icn-1430", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:30", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행"}];
+    const BUS_SCHEDULES = [{"id": "d1-m2d-0620", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "06:20", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분", "busNo": "500번"}, {"id": "d1-m2d-0640", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "06:40", "origin": "무극", "stops": "성본·대소·내산·진천", "note": "무극→성본 ~10–15분", "busNo": "901번"}, {"id": "d1-m2d-0720", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "07:20", "origin": "무극", "stops": "성본·대소·광혜·광혜고·진천", "note": "무극→성본 ~10–15분", "busNo": "900번"}, {"id": "d1-m2d-0750", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "07:50", "origin": "무극", "stops": "성본·대소", "note": "무극→성본 ~10–15분", "busNo": "905번"}, {"id": "d1-m2d-0810", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "08:10", "origin": "무극", "stops": "성본·대소, 소석", "note": "무극→성본 ~10–15분", "busNo": "908번"}, {"id": "d1-m2d-0840", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "08:40", "origin": "무극", "stops": "성본·대소·광혜·선수촌·진천", "note": "무극→성본 ~10–15분", "busNo": "904번"}, {"id": "d1-m2d-0930", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "09:30", "origin": "무극", "stops": "성본·대소·내산·진천", "note": "무극→성본 ~10–15분", "busNo": "901번"}, {"id": "d1-m2d-1020", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "10:20", "origin": "무극", "stops": "성본·대소", "note": "무극→성본 ~10–15분", "busNo": "909번"}, {"id": "d1-m2d-1120", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "11:20", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분", "busNo": "900번"}, {"id": "d1-m2d-1210", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "12:10", "origin": "도청2리", "stops": "도청2리·성본·대소", "note": "성본 경유", "busNo": "902번"}, {"id": "d1-m2d-1300", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "13:00", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분", "busNo": "3001번"}, {"id": "d1-m2d-1400", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "14:00", "origin": "무극", "stops": "성본·대소·내산·진천", "note": "무극→성본 ~10–15분", "busNo": "901번"}, {"id": "d1-m2d-1515", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "15:15", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분", "busNo": "900번"}, {"id": "d1-m2d-1540", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "15:40", "origin": "무극", "stops": "성본·대소·성미·삼성", "note": "무극→성본 ~10–15분", "busNo": "907번"}, {"id": "d1-m2d-1620", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "16:20", "origin": "무극", "stops": "성본·대소·소석", "note": "무극→성본 ~10–15분", "busNo": "908번"}, {"id": "d1-m2d-1720", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "17:20", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분", "busNo": "906번"}, {"id": "d1-m2d-1810", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "18:10", "origin": "무극", "stops": "성본·대소", "note": "무극→성본 ~10–15분", "busNo": "909번"}, {"id": "d1-m2d-1850", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "18:50", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분", "busNo": "3001번"}, {"id": "d1-m2d-1920", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "19:20", "origin": "무극", "stops": "성본·대소·삼성·무극", "note": "무극→성본 ~10–15분", "busNo": "3001번"}, {"id": "d1-m2d-2010", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "20:10", "origin": "무극", "stops": "성본·대소·광혜·진천", "note": "무극→성본 ~10–15분", "busNo": "900번"}, {"id": "d1-d2m-0700", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "07:00", "origin": "대소", "stops": "성본 → 무극 · 음성", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "500번"}, {"id": "d1-d2m-0710", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "07:10", "origin": "대소", "stops": "본대2·무극", "note": "대소 출발", "busNo": "513번"}, {"id": "d1-d2m-0745", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "07:45", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "796번"}, {"id": "d1-d2m-0820", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "08:20", "origin": "대소", "stops": "성본·도청2리 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "905번"}, {"id": "d1-d2m-0900", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "09:00", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "3001번"}, {"id": "d1-d2m-0920", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "09:20", "origin": "대소", "stops": "성본·도청2리 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "799번"}, {"id": "d1-d2m-0950", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "09:50", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "512번"}, {"id": "d1-d2m-1050", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "10:50", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "3002번"}, {"id": "d1-d2m-1150", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "11:50", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "500번"}, {"id": "d1-d2m-1240", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "12:40", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "902번"}, {"id": "d1-d2m-1330", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "13:30", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "500번"}, {"id": "d1-d2m-1420", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "14:20", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "3002번"}, {"id": "d1-d2m-1520", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "15:20", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "511번"}, {"id": "d1-d2m-1600", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "16:00", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "500번"}, {"id": "d1-d2m-1650", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "16:50", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "3002번"}, {"id": "d1-d2m-1720", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "17:20", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "908번"}, {"id": "d1-d2m-1745", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "17:45", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "500번"}, {"id": "d1-d2m-1840", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "18:40", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "909번"}, {"id": "d1-d2m-1920", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "19:20", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "3001번"}, {"id": "d1-d2m-2110", "board": "BOARD_DAESO_STOP", "hub": "DAESO_STOP", "category": "시내", "dir": "D2M", "time": "21:10", "origin": "대소", "stops": "성본 → 무극", "note": "대소→성본 ~5–10분 · 종점 무극", "busNo": "500번"}, {"id": "b6-ig-0615", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:15", "origin": "진천", "stops": "이월(06:40)·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-0640", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:40", "origin": "진천", "stops": "광혜·대소·성미·삼성·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-0730", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "07:30", "origin": "진천", "stops": "이월(07:50)·광고·광혜·대소·삼성·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-0820", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "08:20", "origin": "진천", "stops": "이월(08:40)·광혜·대소·성미·청·삼·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1010", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "10:10", "origin": "진천", "stops": "이월(10:30)·광혜·대소·삼성·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1100", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "11:00", "origin": "진천", "stops": "이월(11:20)·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1240", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "12:40", "origin": "진천", "stops": "이월(13:00)·선수촌·광혜·대소·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1330", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "13:30", "origin": "진천", "stops": "이월(13:50)·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1510", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "15:10", "origin": "진천", "stops": "이월(15:30)·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1650", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "16:50", "origin": "진천", "stops": "이월(17:10)·선수촌·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1830", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "18:30", "origin": "진천", "stops": "이월(18:50)·선수촌·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-1920", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "19:20", "origin": "진천", "stops": "이월(19:40)·광혜·대소·부윤·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b6-ig-2020", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "20:20", "origin": "진천", "stops": "이월(20:40)·광혜·대소·성본·무극", "note": "9/1 변경", "busNo": "시내버스"}, {"id": "b5-cj-0645", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "06:45", "origin": "무극터미널", "stops": "청주(청주대) · 광혜원·진천 경유", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cj-0855", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:55", "origin": "무극터미널", "stops": "청주(청주대) · 진천", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cj-1125", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "11:25", "origin": "무극터미널", "stops": "청주(청주대) · 진천", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cj-1300", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:00", "origin": "무극터미널", "stops": "청주(청주대) · 진천·혁신", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cj-1450", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:50", "origin": "무극터미널", "stops": "청주(청주대) · 진천", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cj-1650", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "16:50", "origin": "무극터미널", "stops": "청주(청주대) · 진천·혁신", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cj-1905", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "19:05", "origin": "무극터미널", "stops": "청주(청주대) · 진천·혁신", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cc-0850", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:50", "origin": "무극터미널", "stops": "충주(주덕) · 음성", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cc-1712", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "17:12", "origin": "무극터미널", "stops": "충주(주덕) · 음성", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "b5-cc-2000", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "20:00", "origin": "무극터미널", "stops": "충주(주덕) · 직통", "note": "직통", "busNo": "시외버스"}, {"id": "b4-dsl-1400", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:00", "origin": "동서울", "stops": "동서울 방면", "note": "토,일,공휴일운행안함", "weekendNo": true, "busNo": "시외버스"}, {"id": "b4-me-1030", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "10:30", "origin": "무극·음성", "stops": "토,일,공휴일운행안함", "note": "토,일,공휴일운행안함", "weekendNo": true, "busNo": "시외버스"}, {"id": "b4-me-1140", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "11:40", "origin": "무극·음성", "stops": "토,일,공휴일운행안함", "note": "토,일,공휴일운행안함", "weekendNo": true, "busNo": "시외버스"}, {"id": "g1-0720", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "07:20", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "g1-0750", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "07:50", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "g1-0830", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "08:30", "origin": "감곡", "stops": "무극 · 복지회관", "note": "복지회관 경유", "busNo": "시내버스"}, {"id": "g1-1410", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "14:10", "origin": "감곡", "stops": "무극 · 원당2·송곡2", "note": "원당2·송곡2 경유", "busNo": "시내버스"}, {"id": "g1-1600", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "16:00", "origin": "감곡", "stops": "무극 · 원당2·송곡2", "note": "원당2·송곡2 경유", "busNo": "시내버스"}, {"id": "g2-exp-0705", "board": "BOARD_GAMGOK_MUGEUK", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "07:05", "origin": "(급행) 감곡/무극", "stops": "금왕·대소", "note": "급행 · 금왕·대소", "busNo": "3002번"}, {"id": "g2-exp-1205", "board": "BOARD_GAMGOK_MUGEUK", "hub": "DAESO_STOP", "category": "시내", "dir": "M2D", "time": "12:05", "origin": "(급행) 감곡/무극", "stops": "금왕·대소", "note": "급행 · 금왕·대소", "busNo": "3002번"}, {"id": "g2-exp-1845", "board": "BOARD_GAMGOK_MUGEUK", "hub": "EUMSEONG_CITY", "category": "시내", "dir": "M2D", "time": "18:45", "origin": "(급행) 감곡/무극", "stops": "금왕·혁신도시", "note": "급행 · 금왕·혁신도시", "busNo": "3002번"}, {"id": "e94-m2e-0740", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "07:40", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "e94-e2m-0800", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "08:00", "origin": "음성", "stops": "무극 · 반도체고", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "sn-0710", "board": "BOARD_SEOUL_NAMBU", "hub": "JINCHEON_LINE", "category": "시외", "dir": "OTHER", "time": "07:10", "origin": "진천/음성권", "stops": "서울남부(서초동)", "note": "서울남부 방면", "busNo": "시외버스"}, {"id": "sn-1020", "board": "BOARD_SEOUL_NAMBU", "hub": "EUMSEONG_CITY", "category": "시외", "dir": "OTHER", "time": "10:20", "origin": "서울남부/출발지", "stops": "덕산·혁신도시·진천", "note": "혁신도시·진천 경유", "busNo": "시외버스"}, {"id": "sa-0810", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:10", "origin": "무극/음성권", "stops": "수원·안산", "note": "수원·안산 방면", "busNo": "시외버스"}, {"id": "icn-0700", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "07:00", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행", "busNo": "시외버스"}, {"id": "e94-m2e-0640", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "06:40", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "e94-m2e-0850", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "08:50", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "e94-m2e-1030", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "10:30", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "e94-m2e-1250", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "12:50", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "e94-m2e-1520", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "15:20", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "e94-m2e-1740", "board": "BOARD_EUMSEONG_904", "hub": "MUGEUK_TERM", "category": "시내", "dir": "D2M", "time": "17:40", "origin": "무극", "stops": "음성", "note": "9/4 변경", "busNo": "시내버스"}, {"id": "sa-1510", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "15:10", "origin": "무극/음성권", "stops": "수원·안산", "note": "수원·안산 방면", "busNo": "시외버스"}, {"id": "ai-0720", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "07:20", "origin": "무극/음성권", "stops": "삼성·일죽·안산종점", "note": "안산종점 방면", "busNo": "시외버스"}, {"id": "ai-1310", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:10", "origin": "무극/음성권", "stops": "삼성·일죽·안산·인천", "note": "안산·인천 방면", "busNo": "시외버스"}, {"id": "ai-1830", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "18:30", "origin": "무극/음성권", "stops": "삼성·일죽·안산·인천", "note": "안산·인천 방면", "busNo": "시외버스"}, {"id": "jp-1255", "board": "BOARD_SUWON_ICN", "hub": "EUMSEONG_CITY", "category": "시외", "dir": "OTHER", "time": "12:55", "origin": "무극/음성권", "stops": "혁신도시·증평", "note": "화·수 운행 참고", "busNo": "시외버스"}, {"id": "cc-1945", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "19:45", "origin": "무극/음성권", "stops": "무극·충주", "note": "충주 방면", "busNo": "시외버스"}, {"id": "icn-0530", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "05:30", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행", "busNo": "시외버스"}, {"id": "icn-1300", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:00", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행", "busNo": "시외버스"}, {"id": "icn-1430", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:30", "origin": "음성/무극권", "stops": "인천공항", "note": "인천공항행", "busNo": "시외버스"}, {"id": "img1-gm-0840", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "08:40", "origin": "감곡", "stops": "무극 · 오생,차곡,본말,생극", "note": "오생,차곡,본말,생극", "busNo": "시내버스"}, {"id": "img1-gm-0940", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "09:40", "origin": "감곡", "stops": "무극 · 오향4리", "note": "오향4리", "busNo": "시내버스"}, {"id": "img1-gm-1030", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "10:30", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1120", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "11:20", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1150", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "11:50", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1320", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "13:20", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1500", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "15:00", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1650", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "16:50", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1720", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "17:20", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1840", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "18:40", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-1930", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "19:30", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gm-2010", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "M2D", "time": "20:10", "origin": "감곡", "stops": "무극", "note": "감곡→무극", "busNo": "시내버스"}, {"id": "img1-gmc-0750", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "07:50", "origin": "감곡", "stops": "문촌", "note": "감곡→문촌", "busNo": "시내버스"}, {"id": "img1-gmc-0910", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "09:10", "origin": "감곡", "stops": "문촌", "note": "감곡→문촌", "busNo": "시내버스"}, {"id": "img1-gmc-1110", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "11:10", "origin": "감곡", "stops": "문촌 · 사곡", "note": "사곡", "busNo": "시내버스"}, {"id": "img1-gmc-1400", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "14:00", "origin": "감곡", "stops": "문촌 · 사곡", "note": "사곡", "busNo": "시내버스"}, {"id": "img1-gmc-1640", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "16:40", "origin": "감곡", "stops": "문촌 · 사곡", "note": "사곡", "busNo": "시내버스"}, {"id": "img1-gmc-1740", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "17:40", "origin": "감곡", "stops": "문촌", "note": "감곡→문촌", "busNo": "시내버스"}, {"id": "img1-gmc-1900", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "19:00", "origin": "감곡", "stops": "문촌", "note": "감곡→문촌", "busNo": "시내버스"}, {"id": "img1-gj-0830", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "08:30", "origin": "감곡", "stops": "잿말,월정,수상 · 오향4리", "note": "오향4리", "busNo": "시내버스"}, {"id": "img1-gj-1000", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "10:00", "origin": "감곡", "stops": "잿말,월정,수상 · 수상", "note": "수상", "busNo": "시내버스"}, {"id": "img1-gj-1250", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "12:50", "origin": "감곡", "stops": "잿말,월정,수상 · 오향4리", "note": "오향4리", "busNo": "시내버스"}, {"id": "img1-gj-1440", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "14:40", "origin": "감곡", "stops": "잿말,월정,수상 · 오향4리,수상", "note": "오향4리,수상", "busNo": "시내버스"}, {"id": "img1-gj-1600", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "16:00", "origin": "감곡", "stops": "잿말,월정,수상 · 오향4리", "note": "오향4리", "busNo": "시내버스"}, {"id": "img1-gj-1740", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "17:40", "origin": "감곡", "stops": "잿말,월정,수상", "note": "감곡→잿말,월정,수상", "busNo": "시내버스"}, {"id": "img1-gj-1930", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "19:30", "origin": "감곡", "stops": "잿말,월정,수상", "note": "감곡→잿말,월정,수상", "busNo": "시내버스"}, {"id": "img1-gp-1820", "board": "BOARD_GAMGOK_MUGEUK", "hub": "MUGEUK_TERM", "category": "시내", "dir": "OTHER", "time": "18:20", "origin": "감곡", "stops": "팔성,관말,용대,삼성 · 생극,팔성,용대,삼성,대정", "note": "생극,팔성,용대,삼성,대정", "busNo": "시내버스"}, {"id": "img2-cj-1040", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "10:40", "origin": "무극터미널", "stops": "청주(청주대)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-cc-0955", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "09:55", "origin": "무극터미널", "stops": "충주(주덕)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-cc-1145", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "11:45", "origin": "무극터미널", "stops": "충주(주덕)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-cc-1305", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "13:05", "origin": "무극터미널", "stops": "충주(주덕)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-cc-1915", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "19:15", "origin": "무극터미널", "stops": "충주(주덕)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-jh-0745", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "07:45", "origin": "무극터미널", "stops": "장호원(생극,감곡)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-jh-0827", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "08:27", "origin": "무극터미널", "stops": "장호원(생극,감곡)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-jh-1505", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "15:05", "origin": "무극터미널", "stops": "장호원(생극,감곡)", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img2-jp-1040", "board": "BOARD_INTERCITY_LIST", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "10:40", "origin": "무극터미널", "stops": "증평", "note": "무극터미널 시외", "busNo": "시외버스"}, {"id": "img7-ai-0730", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "07:30", "origin": "무극/음성권", "stops": "삼성,일죽,인천(우등)", "note": "우등", "busNo": "시외버스"}, {"id": "img7-ai-1200", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "12:00", "origin": "무극/음성권", "stops": "삼성,일죽,안산종점", "note": "안산종점", "busNo": "시외버스"}, {"id": "img7-ai-1410", "board": "BOARD_SUWON_ICN", "hub": "MUGEUK_TERM", "category": "시외", "dir": "OTHER", "time": "14:10", "origin": "무극/음성권", "stops": "삼성,일죽,인천(우등)", "note": "우등", "busNo": "시외버스"}, {"id": "img7-jp-2005", "board": "BOARD_SUWON_ICN", "hub": "EUMSEONG_CITY", "category": "시외", "dir": "OTHER", "time": "20:05", "origin": "무극/음성권", "stops": "혁신도시,증평", "note": "증평 방면", "busNo": "시외버스"}, {"id": "jc91-0615", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:15", "origin": "진천", "stops": "이월(06:40)·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 06:40", "busNo": "500번"}, {"id": "jc91-0630", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:30", "origin": "진천", "stops": "이월(06:50)·광혜·상곡·삼성·용대·감곡", "note": "9/1 변경 · 이월 예상 06:50", "busNo": "506번"}, {"id": "jc91-0640", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:40", "origin": "진천", "stops": "이월(07:00)·광혜·대소·성미·삼성·무극", "note": "9/1 변경 (흐린 구간 보완)", "busNo": "501번"}, {"id": "jc91-0710", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "07:10", "origin": "진천", "stops": "이월(07:30)·선수촌·광혜고·실원", "note": "9/1 변경 · 이월 예상 07:30", "busNo": "520번"}, {"id": "jc91-0730", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "07:30", "origin": "진천", "stops": "이월(07:50)·광고·광혜·대소·삼성·무극", "note": "9/1 변경 · 이월 예상 07:50", "busNo": "503번"}, {"id": "jc91-0820", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "08:20", "origin": "진천", "stops": "이월(08:40)·광혜·대소·성미·청룡·삼성·무극", "note": "9/1 변경 · 이월 예상 08:40", "busNo": "502번"}, {"id": "jc91-0900", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "09:00", "origin": "진천", "stops": "이월(09:20)·선수촌·광혜·실원", "note": "9/1 변경 · 이월 예상 09:20", "busNo": "520번"}, {"id": "jc91-0930", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "09:30", "origin": "진천", "stops": "이월(09:50)·광혜·상곡·삼성·무극", "note": "9/1 변경 · 이월 예상 09:50", "busNo": "508번"}, {"id": "jc91-1010", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "10:10", "origin": "진천", "stops": "이월(10:30)·광혜·대소·삼성·무극", "note": "9/1 변경 · 이월 예상 10:30", "busNo": "504번"}, {"id": "jc91-1100", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "11:00", "origin": "진천", "stops": "이월(11:20)·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 11:20", "busNo": "500번"}, {"id": "jc91-1150", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "11:50", "origin": "진천", "stops": "이월(12:10)·광혜·대소·성미·삼성·무극", "note": "9/1 변경 · 이월 예상 12:10", "busNo": "501번"}, {"id": "jc91-1240", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "12:40", "origin": "진천", "stops": "이월(13:00)·선수촌·광혜·대소·무극", "note": "9/1 변경 · 이월 예상 13:00", "busNo": "500번"}, {"id": "jc91-1330", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "13:30", "origin": "진천", "stops": "이월(13:50)·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 13:50", "busNo": "500번"}, {"id": "jc91-1420", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "14:20", "origin": "진천", "stops": "이월(14:40)·광혜·상곡·삼성·대정·능산", "note": "9/1 변경 · 이월 예상 14:40", "busNo": "509번"}, {"id": "jc91-1510", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "15:10", "origin": "진천", "stops": "이월(15:30)·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 15:30", "busNo": "500번"}, {"id": "jc91-1600", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "16:00", "origin": "진천", "stops": "이월(16:20)·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 16:20", "busNo": "500번"}, {"id": "jc91-1650", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "16:50", "origin": "진천", "stops": "이월(17:10)·선수촌·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 17:10", "busNo": "500번"}, {"id": "jc91-1740", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "17:40", "origin": "진천", "stops": "이월(18:00)·광혜·상곡·삼성·무극", "note": "9/1 변경 · 이월 예상 18:00", "busNo": "508번"}, {"id": "jc91-1830", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "18:30", "origin": "진천", "stops": "이월(18:50)·선수촌·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 18:50", "busNo": "500번"}, {"id": "jc91-1920", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "19:20", "origin": "진천", "stops": "이월(19:40)·광혜·대소·부윤·무극", "note": "9/1 변경 · 이월 예상 19:40", "busNo": "505번"}, {"id": "jc91-2020", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "20:20", "origin": "진천", "stops": "이월(20:40)·광혜·대소·성본·무극", "note": "9/1 변경 · 이월 예상 20:40", "busNo": "500번"}, {"id": "jc91-cp-0620", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:20", "origin": "진천", "stops": "초평·증평 · 반탄·사곡", "note": "9/1 변경 · 초평·증평 방면", "busNo": "202번"}, {"id": "jc91-cp-0640", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "06:40", "origin": "진천", "stops": "초평·증평 · 형석고(주중)", "note": "9/1 변경 · 형석고 경유", "busNo": "200번"}, {"id": "jc91-cp-0720", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "07:20", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "204번"}, {"id": "jc91-cp-0750", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "07:50", "origin": "진천", "stops": "초평·증평 · 반탄·사곡", "note": "9/1 변경 (흐린 구간 보완: 반탄·사곡)", "busNo": "204번"}, {"id": "jc91-cp-0840", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "08:40", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-0920", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "09:20", "origin": "진천", "stops": "초평·증평 · 반탄·사곡·수의", "note": "9/1 변경 · 반탄·사곡·수의", "busNo": "204번"}, {"id": "jc91-cp-1000", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "10:00", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1050", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "10:50", "origin": "진천", "stops": "초평·증평 · 반탄·사곡", "note": "9/1 변경 · 반탄·사곡", "busNo": "203번"}, {"id": "jc91-cp-1140", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "11:40", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1230", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "12:30", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1320", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "13:20", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1400", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "14:00", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1450", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "14:50", "origin": "진천", "stops": "초평·증평 · 반탄·사곡", "note": "9/1 변경 · 반탄·사곡", "busNo": "203번"}, {"id": "jc91-cp-1540", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "15:40", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1610", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "16:10", "origin": "진천", "stops": "초평·증평 · 반탄·사곡", "note": "9/1 변경 · 반탄·사곡", "busNo": "203번"}, {"id": "jc91-cp-1700", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "17:00", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1750", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "17:50", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-1830", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "18:30", "origin": "진천", "stops": "초평·증평 · 반탄·사곡", "note": "9/1 변경 · 반탄·사곡", "busNo": "202번"}, {"id": "jc91-cp-1920", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "19:20", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}, {"id": "jc91-cp-2020", "board": "BOARD_JINCHEON", "hub": "JINCHEON_LINE", "category": "시내", "dir": "OTHER", "time": "20:20", "origin": "진천", "stops": "초평·증평 · 은암산단", "note": "9/1 변경 · 은암산단", "busNo": "200번"}];
 
     const SVG_ICONS = {
       clock: `<svg class="ui-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
@@ -659,15 +699,6 @@
       zap: `<svg class="ui-ico" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
     };
 
-    function escapeHtml(str) {
-      return String(str ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-    }
-
     function mountStaticIcons() {
       const mapSlots = {
         glanceIcoSlot: SVG_ICONS.zap,
@@ -675,12 +706,10 @@
         kickerHomeIco: SVG_ICONS.zap,
         btnAlarmNearIco: SVG_ICONS.bell,
         kickerMapIco: SVG_ICONS.map,
-        kickerAlarmIco: SVG_ICONS.bell,
         kickerSavedIco: SVG_ICONS.starFilled,
         kickerSearchIco: SVG_ICONS.search,
         dockHomeIco: SVG_ICONS.bus,
         dockMapIco: SVG_ICONS.map,
-        dockAlarmIco: SVG_ICONS.clock,
         dockSavedIco: SVG_ICONS.starOutline,
         dockSearchIco: SVG_ICONS.search
       };
@@ -690,17 +719,17 @@
       });
       const logoEl = document.getElementById("brandLogoSlot");
       if (logoEl) {
-        logoEl.innerHTML = `<svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#191919;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16M8 17v2m8-2v2M17.5 5.5a4 4 0 0 1 2.5 2.5"/></svg>`;
+        logoEl.innerHTML = `<svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:#191919;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16M8 17v2m8-2v2M17.5 5.5a4 4 0 0 1 2.5 2.5"/></svg>`;
       }
     }
 
-    const STORAGE_KEY = "eumseong_bus_radar_v22";
+    const STORAGE_KEY = "eumseong_bus_radar_v27";
     const defaultState = {
       theme: "light",
       corridorDir: "ALL",
+      countdownAnchor: "SEONGBON",
       simOffsetMinutes: 0,
       simDrawerOpen: false,
-      alarms: {},
       customSchedules: [],
       savedIds: ["d1-m2d-0750", "d1-d2m-1745"],
       tripNote: "",
@@ -716,7 +745,7 @@
 
     let state = JSON.parse(JSON.stringify(defaultState));
     try {
-      const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem("eumseong_bus_radar_v21") || localStorage.getItem("eumseong_bus_radar_v20");
+      const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
         state = Object.assign(JSON.parse(JSON.stringify(defaultState)), parsed, {
@@ -735,18 +764,41 @@
       }
     } catch (e) {}
 
-    let audioCtx = null, toastTimer = null, isSliderDragging = false, lastRenderedMinuteKey = "";
+    let audioCtx = null, toastTimer = null, isSliderDragging = false;
     let mapState = { mode: "INSPECT", scale: 1, tx: 0, ty: 0, dragging: false, startX: 0, startY: 0, routeFrom: "MUGEUK_TERM", routeTo: "DAESO_STOP", activeLine: "ALL" };
     const HUB_LABELS = { MUGEUK_TERM: "무극", DAESO_STOP: "대소", SEONGBON: "성본", JINCHEON_LINE: "진천", EUMSEONG_CITY: "음성" };
 
+    const HUB_PCT_COORDS = {
+      MUGEUK_TERM: { x: 20, y: 25, label: "무극", svg: [80, 75] },
+      DAESO_STOP: { x: 80, y: 25, label: "대소", svg: [320, 75] },
+      SEONGBON: { x: 50, y: 44, label: "성본", svg: [200, 132] },
+      JINCHEON_LINE: { x: 22, y: 63, label: "진천", svg: [88, 189] },
+      EUMSEONG_CITY: { x: 78, y: 63, label: "음성", svg: [312, 189] }
+    };
+
     function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {} }
     function getEffectiveNow() { return new Date(Date.now() + (Number(state.simOffsetMinutes) || 0) * 60000); }
-    function getCurrentFloatMinutes(effDate) {
-      return effDate.getHours() * 60 + effDate.getMinutes() + effDate.getSeconds() / 60;
-    }
     function timeToMinutes(hhmm) { const [h, m] = String(hhmm || "00:00").split(":").map(Number); return (Number(h) || 0) * 60 + (Number(m) || 0); }
     function formatMinutesToHHMM(totalMin) { const norm = ((Math.round(totalMin) % 1440) + 1440) % 1440; return `${String(Math.floor(norm / 60)).padStart(2, "0")}:${String(norm % 60).padStart(2, "0")}`; }
     function getPeakDelayMinutes(hhmm) { if (!state.settings.peakDelayAdvisor) return 0; const m = timeToMinutes(hhmm); return ((m >= 420 && m <= 540) || (m >= 1020 && m <= 1140)) ? 5 : 0; }
+    function lerp(a, b, t) { return a + (b - a) * Math.max(0, Math.min(1, t)); }
+
+    function getAnchorOffsetMinutes(bus) {
+      const anc = state.countdownAnchor || "SEONGBON";
+      if (anc === "SEONGBON") {
+        if (bus.origin.includes("무극") && bus.stops.includes("성본")) return 12;
+        if (bus.origin.includes("대소") && bus.stops.includes("성본")) return 7;
+        return 0;
+      }
+      if (anc === "MUGEUK") return bus.origin.includes("대소") ? 25 : 0;
+      if (anc === "DAESO") return bus.origin.includes("무극") ? 25 : 0;
+      return 0;
+    }
+
+    function getEffectiveBusTimeStr(bus) {
+      return formatMinutesToHHMM(timeToMinutes(bus.time) + getPeakDelayMinutes(bus.time) + getAnchorOffsetMinutes(bus));
+    }
+
     function computeIntermediateEta(bus) {
       const baseMin = timeToMinutes(bus.time), pk = getPeakDelayMinutes(bus.time), out = [];
       if (bus.origin.includes("무극") && bus.stops.includes("성본")) out.push(`성본 ~${formatMinutesToHHMM(baseMin + 10 + pk)}–${formatMinutesToHHMM(baseMin + 15 + pk)}`);
@@ -755,22 +807,157 @@
       if (pk > 0) out.push(`Jam sibuk +${pk}m`);
       return out.join(" · ");
     }
+
     function getDeltaInfo(busTimeStr, effDate) {
-      const curMin = getCurrentFloatMinutes(effDate);
+      const curMin = effDate.getHours() * 60 + effDate.getMinutes() + effDate.getSeconds() / 60;
       const diff = Math.round(timeToMinutes(busTimeStr) - curMin);
-      if (diff < 0) {
-        const absDiff = Math.abs(diff);
-        if (absDiff >= 60) {
-          const h = Math.floor(absDiff / 60), m = absDiff % 60;
-          return { diff, status: "passed", label: m > 0 ? `Lewat ${h}j ${m}m` : `Lewat ${h}j` };
-        }
-        return { diff, status: "passed", label: `Lewat ${absDiff}m` };
-      }
+      if (diff < 0) return { diff, status: "passed", label: `Lewat ${Math.abs(diff)}m` };
       if (diff === 0) return { diff, status: "now", label: "Sekarang" };
       if (diff <= 15) return { diff, status: "soon", label: `Dalam ${diff}m` };
       const h = Math.floor(diff / 60), m = diff % 60;
       return { diff, status: "upcoming", label: h > 0 ? `Dalam ${h}j ${m}m` : `Dalam ${m}m` };
     }
+
+    function getBusPositionStageLabel(bus, effDate) {
+      if (!bus) return "Menunggu jadwal";
+      const d = getDeltaInfo(bus.time, effDate);
+      const baseM = timeToMinutes(bus.time);
+      const curM = effDate.getHours() * 60 + effDate.getMinutes() + effDate.getSeconds() / 60;
+      const elapsed = curM - baseM;
+      if (elapsed < 0) return `Menunggu berangkat ${bus.time} (${d.label})`;
+      if (bus.origin.includes("무극") && bus.stops.includes("성본")) {
+        if (elapsed <= 12) return `Berjalan 무극 → 성본 (${Math.floor(elapsed)}m dari ${bus.time})`;
+        if (elapsed <= 22) return `Lewat 성본 (경유) · ~${Math.floor(elapsed)}m`;
+        return `Menuju 대소 (${Math.floor(elapsed)}m dari ${bus.time})`;
+      }
+      if (bus.origin.includes("대소") && bus.stops.includes("성본")) {
+        if (elapsed <= 7) return `Berjalan 대소 → 성본 (${Math.floor(elapsed)}m dari ${bus.time})`;
+        if (elapsed <= 15) return `Lewat 성본 (경유) · ~${Math.floor(elapsed)}m`;
+        return `Menuju 무극 (${Math.floor(elapsed)}m dari ${bus.time})`;
+      }
+      return `Berjalan (${bus.origin} → ${bus.stops})`;
+    }
+
+    let busTrackPct = 10;
+
+    function startBusSmoothLoop() {
+      // Smooth continuous micro-motion along the active progress bar without overlapping hub nodes
+      setInterval(() => {
+        const pin = document.getElementById("liveBusBadge");
+        const fill = document.getElementById("trackProgressFill");
+        if (!pin || !fill) return;
+        const wiggle = Math.sin(Date.now() / 450) * 1.2;
+        const pct = Math.max(4, Math.min(96, busTrackPct + wiggle));
+        pin.style.left = `${pct.toFixed(1)}%`;
+        fill.style.width = `${pct.toFixed(1)}%`;
+      }, 120);
+    }
+
+    function computeLiveBusState(fromHub, toHub, effDate) {
+      const fInfo = HUB_PCT_COORDS[fromHub] || HUB_PCT_COORDS.MUGEUK_TERM;
+      const tInfo = toHub ? (HUB_PCT_COORDS[toHub] || HUB_PCT_COORDS.DAESO_STOP) : null;
+      const sbInfo = HUB_PCT_COORDS.SEONGBON;
+
+      let wps = [];
+      let isReverse = false;
+      if (!tInfo) {
+        if (fromHub === "DAESO_STOP") {
+          wps = [HUB_PCT_COORDS.DAESO_STOP, sbInfo, HUB_PCT_COORDS.MUGEUK_TERM];
+          isReverse = true;
+        } else {
+          wps = [HUB_PCT_COORDS.MUGEUK_TERM, sbInfo, HUB_PCT_COORDS.DAESO_STOP];
+        }
+      } else {
+        const isMainCross = (fromHub === "MUGEUK_TERM" && toHub === "DAESO_STOP") ||
+                            (fromHub === "DAESO_STOP" && toHub === "MUGEUK_TERM");
+        if (isMainCross && fromHub !== "SEONGBON" && toHub !== "SEONGBON") {
+          wps = [fInfo, sbInfo, tInfo];
+          isReverse = fromHub === "DAESO_STOP";
+        } else {
+          wps = [fInfo, tInfo];
+        }
+      }
+
+      const curMin = effDate.getHours() * 60 + effDate.getMinutes() + effDate.getSeconds() / 60;
+      const dirTrips = BUS_SCHEDULES.filter(b =>
+        b.board === "BOARD_DAESO_STOP" &&
+        (isReverse ? b.origin.includes("대소") : b.origin.includes("무극")) &&
+        b.stops.includes("성본")
+      ).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+
+      const runningTrip = dirTrips.find(b => {
+        const el = curMin - timeToMinutes(b.time);
+        return el >= 0 && el <= 24;
+      });
+      const upcomingTrip = dirTrips.find(b => timeToMinutes(b.time) >= curMin) || dirTrips[0];
+      const targetBus = runningTrip || upcomingTrip;
+
+      let pct = 10;
+      let badgeText = "🚌";
+      let statusLine = "";
+      const oLbl = wps[0]?.label || "무극";
+      const mLbl = wps.length === 3 ? wps[1].label : "경유";
+      const dLbl = wps[wps.length - 1]?.label || "대소";
+
+      if (targetBus && wps.length === 3) {
+        const startM = timeToMinutes(targetBus.time);
+        const leg1Dur = isReverse ? 7 : 12;
+        const leg2Dur = isReverse ? 15 : 12;
+        const totalDur = leg1Dur + leg2Dur;
+        const elapsed = curMin - startM;
+        const bNo = targetBus.busNo ? `${targetBus.busNo} ` : "";
+
+        if (elapsed < 0) {
+          pct = 8;
+          badgeText = `🚌 ${bNo}${targetBus.time}`;
+          statusLine = `Menunggu ${bNo}${targetBus.time} di ${oLbl} (${getDeltaInfo(targetBus.time, effDate).label})`;
+        } else if (elapsed <= totalDur) {
+          pct = 8 + (elapsed / totalDur) * 84;
+          if (elapsed <= leg1Dur) {
+            badgeText = `🚌 ${bNo}${oLbl}→${mLbl}`;
+            statusLine = `${bNo}${targetBus.time} · ${oLbl} → ${mLbl} (${Math.floor(elapsed)}m/${leg1Dur}m)`;
+          } else {
+            badgeText = `🚌 ${bNo}${mLbl}→${dLbl}`;
+            statusLine = `${bNo}${targetBus.time} · Lewat ${mLbl} → ${dLbl} (${Math.floor(elapsed)}m/${totalDur}m)`;
+          }
+        } else {
+          pct = 92;
+          badgeText = `🚌 ${dLbl}`;
+          statusLine = `${bNo}${targetBus.time} · Tiba di ${dLbl}`;
+        }
+      } else {
+        pct = 45;
+        badgeText = `🚌 ${oLbl}→${dLbl}`;
+        statusLine = `Jalur ${oLbl} → ${dLbl}`;
+      }
+
+      return { wps, pct, badgeText, statusLine, oLbl, mLbl, dLbl };
+    }
+
+    function updateScheduleBusMarker(fromHub, toHub, effDate = getEffectiveNow()) {
+      const noteEl = document.getElementById("mapLiveTrackNote");
+      const pin = document.getElementById("liveBusBadge");
+      const oEl = document.getElementById("trackOriginLbl");
+      const mEl = document.getElementById("trackMidLbl");
+      const dEl = document.getElementById("trackDestLbl");
+      if (!pin) return;
+
+      const info = computeLiveBusState(fromHub, toHub, effDate);
+      const svgD = "M " + info.wps.map(p => `${p.svg[0]} ${p.svg[1]}`).join(" L ");
+      const routeLine = document.getElementById("svgSelectedRoute");
+      const flowEl = document.getElementById("svgFlowActive");
+      if (routeLine) routeLine.setAttribute("d", svgD);
+      if (flowEl) flowEl.setAttribute("d", svgD);
+
+      if (oEl) oEl.textContent = info.oLbl;
+      if (mEl) mEl.textContent = info.mLbl;
+      if (dEl) dEl.textContent = info.dLbl;
+
+      busTrackPct = info.pct;
+      pin.textContent = info.badgeText;
+      if (noteEl && info.statusLine) noteEl.textContent = info.statusLine;
+    }
+
     function playBeep() {
       try {
         if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -781,6 +968,7 @@
         osc.start(); osc.stop(audioCtx.currentTime + 0.35);
       } catch (e) {}
     }
+
     function showToast(msg) {
       const banner = document.getElementById("toastBanner"), text = document.getElementById("toastText");
       if (!banner || !text) return;
@@ -789,45 +977,106 @@
     }
     function dismissToast() { document.getElementById("toastBanner")?.classList.remove("show"); }
 
-    function snoozeAlarm(busId, ev) {
-      if (ev) ev.stopPropagation();
-      const item = state.alarms[busId]; if (!item) return;
-      item.leadMin = Math.max(1, (Number(item.leadMin) || 10) - 5); item.fired = false;
-      saveState(); showToast(`Alarm disesuaikan: ingatkan ${item.leadMin}m sebelum bus.`); renderAll(true);
+    function setCountdownAnchor(anc, btnEl) {
+      state.countdownAnchor = anc;
+      document.querySelectorAll(".anchor-btn").forEach(b => b.classList.toggle("active", b.dataset.anchor === anc));
+      const lbl = document.getElementById("anchorLabel");
+      if (lbl) lbl.textContent = anc === "MUGEUK" ? "무극터미널" : (anc === "DAESO" ? "대소터미널" : "성본 (GS25)");
+      saveState(); renderAll();
     }
-    function toggleAlarm(busId, ev) {
-      if (ev) ev.stopPropagation();
-      const bus = BUS_SCHEDULES.find(b => b.id === busId); if (!bus) return;
-      if (state.alarms[busId]) { delete state.alarms[busId]; showToast(`Alarm ${bus.time} (${bus.origin}) dibatalkan.`); }
-      else { state.alarms[busId] = { leadMin: Number(state.settings.leadMinutes) || 10, fired: false }; showToast(`Alarm aktif: ${bus.time} (${bus.origin} → ${bus.stops})`); }
-      saveState(); renderAll(true);
-    }
+
+
     function toggleSaved(busId, ev) {
       if (ev) ev.stopPropagation();
       const idx = state.savedIds.indexOf(busId);
       if (idx >= 0) state.savedIds.splice(idx, 1); else state.savedIds.push(busId);
-      saveState(); renderAll(true);
+      saveState(); renderAll();
     }
 
     function createBusRow(bus, effDate, isNextUp = false) {
-      const delta = getDeltaInfo(bus.time, effDate);
-      const isAlarm = Boolean(state.alarms[bus.id]);
+      const effTimeStr = getEffectiveBusTimeStr(bus);
+      const delta = getDeltaInfo(effTimeStr, effDate);
       const isSaved = state.savedIds.includes(bus.id);
       const day = effDate.getDay(), isWeekend = day === 0 || day === 6;
       const row = document.createElement("div");
-      row.className = ["bus-item", delta.status === "passed" ? "passed" : "", isNextUp ? "next-up" : "", isAlarm ? "alarm-armed" : ""].filter(Boolean).join(" ");
-      row.onclick = () => toggleAlarm(bus.id);
+      row.className = ["bus-item", delta.status === "passed" ? "passed" : "", isNextUp ? "next-up" : ""].filter(Boolean).join(" ");
+      row.onclick = () => toggleSaved(bus.id);
       const deltaClass = delta.status === "passed" ? "delta-passed" : (delta.status === "now" ? "delta-now" : (delta.status === "soon" ? "delta-soon" : ""));
       const pkMin = getPeakDelayMinutes(bus.time), etaLine = computeIntermediateEta(bus);
-      const weekendTag = (bus.weekendNo && isWeekend && state.settings.autoWeekendWarn) ? `<span class="tag-badge tag-weekend-no">Libur</span>` : "";
+      const weekendTag = isWeekend && state.settings.autoWeekendWarn
+        ? (bus.weekendNo
+            ? `<span class="tag-badge tag-weekend-no">Libur</span>`
+            : `<span class="tag-badge" style="background:rgba(14,165,104,0.13);color:var(--accent-green);">Aktif</span>`)
+        : "";
       const peakTag = pkMin > 0 ? `<span class="tag-badge tag-peak">+${pkMin}m</span>` : "";
-      const alarmTag = isAlarm ? `<span class="tag-badge tag-alarm">${SVG_ICONS.bell} ${escapeHtml(state.alarms[bus.id].leadMin)}m</span>` : "";
+      const ancTag = (state.countdownAnchor && state.countdownAnchor !== "SEONGBON" && effTimeStr !== bus.time) ? `<br><span style="color:var(--accent-blue);font-weight:700;">Acuan ~${effTimeStr}</span>` : "";
       row.innerHTML = `
-        <div class="bus-time-col"><div class="bus-time">${escapeHtml(bus.time)}</div><div class="bus-delta ${deltaClass}">${escapeHtml(delta.label)}</div></div>
-        <div class="bus-route-col"><div class="bus-route-main">${escapeHtml(bus.origin)} → ${escapeHtml(bus.stops)}</div><div class="bus-route-sub">${escapeHtml(bus.note)}</div>${etaLine ? `<div class="tag-eta">${escapeHtml(etaLine)}</div>` : ""}</div>
-        <div class="bus-right-col">${alarmTag}${peakTag}${weekendTag}<button class="star-btn" title="Simpan ke favorit" onclick="toggleSaved('${escapeHtml(bus.id)}', event)">${isSaved ? SVG_ICONS.starFilled : SVG_ICONS.starOutline}</button></div>
+        <div class="bus-time-col"><span style="display:inline-block;background:rgba(29,110,242,0.14);color:var(--accent-blue);font-weight:800;font-size:10px;padding:1px 6px;border-radius:6px;margin-bottom:2px;white-space:nowrap;">${bus.busNo || "버스"}</span><div class="bus-time">${bus.time}</div><div class="bus-delta ${deltaClass}">${delta.label}</div></div>
+        <div class="bus-route-col"><div class="bus-route-main">${bus.origin} → ${bus.stops}</div><div class="bus-route-sub">${bus.note}${ancTag}</div>${etaLine ? `<div class="tag-eta">${etaLine}</div>` : ""}</div>
+        <div class="bus-right-col">${peakTag}${weekendTag}<button class="star-btn" title="Simpan ke favorit" onclick="toggleSaved('${bus.id}', event)">${isSaved ? SVG_ICONS.starFilled : SVG_ICONS.starOutline}</button></div>
       `;
-      return row;
+
+      const shell = document.createElement("div");
+      shell.className = "bus-swipe-shell";
+      const bg = document.createElement("div");
+      bg.className = "bus-swipe-bg";
+      bg.innerHTML = `<span>🔔 Alarm</span><span>★ Favorit</span>`;
+      shell.appendChild(bg);
+      shell.appendChild(row);
+
+      let startX = 0, startY = 0, curDx = 0, swiping = false, axisLocked = null;
+      row.addEventListener("pointerdown", e => {
+        if (e.target.closest("button")) return;
+        startX = e.clientX;
+        startY = e.clientY;
+        curDx = 0;
+        swiping = true;
+        axisLocked = null;
+        row.style.transition = "none";
+      });
+      row.addEventListener("pointermove", e => {
+        if (!swiping) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        if (!axisLocked && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+          axisLocked = Math.abs(dx) > Math.abs(dy) * 1.35 ? "x" : "y";
+        }
+        if (axisLocked !== "x") return;
+        curDx = Math.max(-90, Math.min(90, dx));
+        if (Math.abs(curDx) > 10) {
+          shell.classList.add("is-swiping");
+          row.style.transform = `translateX(${curDx}px)`;
+        }
+      });
+      const finishSwipe = () => {
+        if (!swiping) return;
+        swiping = false;
+        shell.classList.remove("is-swiping");
+        row.style.transition = "transform 0.18s ease-out";
+        row.style.transform = "translateX(0px)";
+if (curDx < -52) {
+          toggleSaved(bus.id);
+          showToast(state.savedIds.includes(bus.id) ? `Disimpan ke favorit: ${bus.time}` : `Dihapus dari favorit: ${bus.time}`);
+        }
+        curDx = 0;
+      };
+      row.addEventListener("pointerup", finishSwipe);
+      row.addEventListener("pointercancel", finishSwipe);
+
+      return shell;
+    }
+
+    function onCarouselScroll(el) {
+      if (!el) return;
+      const idx = Math.round(el.scrollLeft / Math.max(1, el.clientWidth));
+      document.querySelectorAll("#prioritasDots .ios-dot").forEach((d, i) => d.classList.toggle("active", i === idx));
+    }
+
+    function goCarouselSlide(idx) {
+      const el = document.getElementById("prioritasCarousel");
+      if (!el) return;
+      el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
+      document.querySelectorAll("#prioritasDots .ios-dot").forEach((d, i) => d.classList.toggle("active", i === idx));
     }
 
     function getCorridorBuses() {
@@ -845,9 +1094,10 @@
       if (lbEl && lbTxt && lbCd) {
         if (!nextBus) { lbEl.className = "leave-banner"; lbTxt.textContent = "Tidak ada bus koridor tersisa hari ini."; lbCd.textContent = "--"; }
         else {
+          const effStr = getEffectiveBusTimeStr(nextBus);
           const walk = Number(state.settings.walkBuffer) || 0, pk = getPeakDelayMinutes(nextBus.time);
-          const leaveAtMin = timeToMinutes(nextBus.time) - walk - pk;
-          const curMin = getCurrentFloatMinutes(effDate);
+          const leaveAtMin = timeToMinutes(effStr) - walk;
+          const curMin = effDate.getHours() * 60 + effDate.getMinutes() + effDate.getSeconds() / 60;
           const rem = Math.round(leaveAtMin - curMin), leaveStr = formatMinutesToHHMM(leaveAtMin);
           if (rem <= 0) { lbEl.className = "leave-banner urgent"; lbTxt.textContent = `Sudah mepet / keluar sekarang (${leaveStr}) untuk bus ${nextBus.time}`; lbCd.textContent = "0m"; }
           else if (rem <= 5) { lbEl.className = "leave-banner urgent"; lbTxt.textContent = `Keluar maksimal ${rem} menit lagi (${leaveStr}) · Bus ${nextBus.time}`; lbCd.textContent = `${rem}m`; }
@@ -856,21 +1106,191 @@
       }
       const recBanner = document.getElementById("recoveryBanner"), recText = document.getElementById("recoveryText"), recBtn = document.getElementById("recoveryArmBtn");
       if (recBanner && recText && recBtn) {
-        const justMissed = [...buses].reverse().find(b => { const df = getDeltaInfo(b.time, effDate).diff; return df < 0 && df >= -10; });
+        const justMissed = [...buses].reverse().find(b => { const df = getDeltaInfo(getEffectiveBusTimeStr(b), effDate).diff; return df < 0 && df >= -10; });
         if (justMissed && nextBus) {
           recBanner.classList.add("show");
           recText.textContent = `Bus ${justMissed.time} (${justMissed.origin}) terlewat. Alternatif: ${nextBus.time} (${nextBus.stops}).`;
-          recBtn.onclick = (e) => { e.stopPropagation(); state.alarms[nextBus.id] = { leadMin: Number(state.settings.leadMinutes) || 10, fired: false }; saveState(); showToast(`Alarm pengganti aktif: ${nextBus.time}`); renderAll(true); };
+          recBtn.onclick = (e) => { e.stopPropagation(); state.alarms[nextBus.id] = { leadMin: Number(state.settings.leadMinutes) || 10, fired: false }; saveState(); showToast(`Alarm pengganti aktif: ${nextBus.time}`); renderAll(); };
         } else recBanner.classList.remove("show");
       }
+    }
+
+    function updateSlide1NearestBus(nextBus, effDate, backupBus = null) {
+      const bkRow = document.getElementById("slide1BackupRow");
+      const bkTxt = document.getElementById("slide1BackupText");
+      const bkBtn = document.getElementById("slide1BackupArmBtn");
+      if (bkRow && bkTxt && bkBtn) {
+        if (backupBus) {
+          bkRow.style.display = "flex";
+          bkTxt.textContent = `Next +1: ${backupBus.time} · ${backupBus.busNo || "버스"} (${backupBus.origin}→${backupBus.stops})`;
+          bkBtn.onclick = (e) => {
+            e.stopPropagation();
+            state.alarms[backupBus.id] = { leadMin: Number(state.settings.leadMinutes) || 10, fired: false };
+            saveState();
+            showToast(`Alarm cadangan aktif: ${backupBus.time} (${backupBus.origin} → ${backupBus.stops})`);
+            renderAll();
+          };
+        } else {
+          bkRow.style.display = "none";
+        }
+      }
+      const timeEl = document.getElementById("slide1BusTime");
+      const noEl = document.getElementById("slide1BusNo");
+      const dirEl = document.getElementById("slide1BusDirTag");
+      const deltaEl = document.getElementById("slide1BusDelta");
+      const routeEl = document.getElementById("slide1BusRoute");
+      const stopsEl = document.getElementById("slide1BusStopsDetail");
+      const ancBadge = document.getElementById("slide1AnchorBadge");
+      const anc = state.countdownAnchor || "SEONGBON";
+      if (ancBadge) {
+        ancBadge.textContent = anc === "MUGEUK" ? "Rute : 무극" : (anc === "DAESO" ? "Rute : 대소" : "Rute : 선본");
+      }
+      if (!nextBus) {
+        if (timeEl) timeEl.textContent = "--:--";
+        if (noEl) noEl.textContent = "-";
+        if (dirEl) dirEl.textContent = "";
+        if (deltaEl) deltaEl.textContent = "Habis";
+        if (routeEl) routeEl.textContent = "Tidak ada bus koridor tersisa hari ini.";
+        if (stopsEl) stopsEl.textContent = "";
+        return;
+      }
+      const effStr = getEffectiveBusTimeStr(nextBus);
+      const d = getDeltaInfo(effStr, effDate);
+      const fullChain = `${nextBus.origin} → ${nextBus.stops}`;
+      let towardLabel = "";
+      if (fullChain.includes("대소") && !fullChain.startsWith("대소")) towardLabel = "Arah ke 대소";
+      else if (fullChain.includes("무극") && !fullChain.startsWith("무극")) towardLabel = "Arah ke 무극";
+      else towardLabel = `Rute ${nextBus.origin}`;
+
+      const eta = computeIntermediateEta(nextBus);
+      if (timeEl) timeEl.textContent = nextBus.time;
+      if (noEl) noEl.textContent = nextBus.busNo || "버스";
+      if (dirEl) dirEl.textContent = `· ${towardLabel}`;
+      if (deltaEl) deltaEl.textContent = d.label;
+      if (routeEl) routeEl.textContent = `Jalur dilalui: ${fullChain}`;
+      if (stopsEl) {
+        const parts = [];
+        if (anc !== "SEONGBON" || effStr !== nextBus.time) parts.push(`Estimasi titik acuan ~${effStr}`);
+        if (eta) parts.push(eta);
+        if (nextBus.note) parts.push(nextBus.note);
+        stopsEl.textContent = parts.join(" · ");
+      }
+    }
+
+
+    let s3Reverse = false;
+    let s3BusProgress = 0.18;
+    let s3PreviewBoost = 0;
+
+    function toggleSlide3MapDir() {
+      s3Reverse = !s3Reverse;
+      const btn = document.getElementById("slide3DirToggle");
+      if (btn) btn.textContent = s3Reverse ? "대소 → 무극" : "무극 → 대소";
+      updateSlide3InteractiveMap(getEffectiveNow());
+    }
+
+    function pulseSlide3BusPreview() {
+      s3PreviewBoost = (s3PreviewBoost + 0.25) % 1;
+      const rstBtn = document.getElementById("slide3ResetBoostBtn");
+      if (rstBtn) rstBtn.style.display = s3PreviewBoost > 0 ? "inline-block" : "none";
+      updateSlide3InteractiveMap(getEffectiveNow());
+    }
+
+    function resetSlide3PreviewBoost() {
+      s3PreviewBoost = 0;
+      const rstBtn = document.getElementById("slide3ResetBoostBtn");
+      if (rstBtn) rstBtn.style.display = "none";
+      updateSlide3InteractiveMap(getEffectiveNow());
+    }
+
+    function updateSlide3InteractiveMap(effDate = getEffectiveNow()) {
+      const startEl = document.getElementById("s3NodeStart");
+      const midEl = document.getElementById("s3NodeMid");
+      const endEl = document.getElementById("s3NodeEnd");
+      const pinEl = document.getElementById("s3MovingBusPin");
+      const lineEl = document.getElementById("s3RouteProgressLine");
+      const txtEl = document.getElementById("s3MapStatusText");
+      if (!pinEl || !startEl || !midEl || !endEl) return;
+
+      if (s3Reverse) {
+        startEl.textContent = "대소";
+        midEl.textContent = "성본";
+        endEl.textContent = "무극";
+      } else {
+        startEl.textContent = "무극";
+        midEl.textContent = "성본";
+        endEl.textContent = "대소";
+      }
+
+      const curMin = effDate.getHours() * 60 + effDate.getMinutes() + effDate.getSeconds() / 60;
+      const trips = BUS_SCHEDULES.filter(b =>
+        b.board === "BOARD_DAESO_STOP" &&
+        (s3Reverse ? b.origin.includes("대소") : b.origin.includes("무극")) &&
+        b.stops.includes("성본")
+      ).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+
+      const running = trips.find(b => {
+        const el = curMin - timeToMinutes(b.time);
+        return el >= 0 && el <= 24;
+      });
+      const upcoming = trips.find(b => timeToMinutes(b.time) >= curMin) || trips[0];
+      const activeBus = running || upcoming;
+
+      let tNorm = 0.1;
+      let statusMsg = "Est. jadwal (bukan GPS langsung)";
+      if (activeBus) {
+        const startM = timeToMinutes(activeBus.time);
+        const elapsed = curMin - startM;
+        const bNo = activeBus.busNo ? `${activeBus.busNo} ` : "";
+        if (elapsed >= 0 && elapsed <= 24) {
+          tNorm = 0.1 + (elapsed / 24) * 0.84;
+          const stage = elapsed < 12 ? `${startEl.textContent}→${midEl.textContent}` : `${midEl.textContent}→${endEl.textContent}`;
+          statusMsg = `${bNo}${activeBus.time} · Est. ${stage} (${Math.floor(elapsed)}m/24m)`;
+        } else {
+          tNorm = 0.1;
+          statusMsg = `${bNo}${activeBus.time} (${getDeltaInfo(activeBus.time, effDate).label}) · Est. jadwal`;
+        }
+      }
+
+      if (s3PreviewBoost > 0) {
+        tNorm = 0.1 + ((tNorm + s3PreviewBoost) % 0.84);
+      }
+      s3BusProgress = Math.min(0.94, Math.max(0.1, tNorm));
+
+      // Interpolate strictly along two segments: (0.10, 0.64) -> (0.50, 0.44) -> (0.90, 0.64)
+      let pxPct = 10, pyPct = 64;
+      if (s3BusProgress <= 0.52) {
+        const u = (s3BusProgress - 0.1) / 0.42;
+        pxPct = lerp(10, 50, u);
+        pyPct = lerp(64, 44, u);
+      } else {
+        const u = (s3BusProgress - 0.52) / 0.42;
+        pxPct = lerp(50, 90, u);
+        pyPct = lerp(44, 64, u);
+      }
+
+      pinEl.style.left = `${pxPct.toFixed(1)}%`;
+      pinEl.style.top = `${pyPct.toFixed(1)}%`;
+      pinEl.textContent = activeBus ? `🚌 ${activeBus.time}` : "🚌";
+
+      if (lineEl) {
+        const svgX = 24 + ((pxPct - 10) / 80) * (276 - 24);
+        const svgY = 48 + ((pyPct - 64) / -20) * (34 - 48);
+        lineEl.setAttribute("x2", String(Math.max(24, Math.min(276, svgX)).toFixed(1)));
+        lineEl.setAttribute("y2", String(Math.max(30, Math.min(54, svgY)).toFixed(1)));
+      }
+      if (txtEl) txtEl.textContent = statusMsg;
     }
 
     function renderHomeCorridor(effDate = getEffectiveNow()) {
       const container = document.getElementById("homeCorridorList"); if (!container) return;
       const hidePassed = Boolean(document.getElementById("hidePassedHome")?.checked);
       const buses = getCorridorBuses();
-      const nextBus = buses.find(b => getDeltaInfo(b.time, effDate).diff >= 0);
-      const rows = buses.filter(b => !hidePassed || getDeltaInfo(b.time, effDate).diff >= -2);
+      const upcomingList = buses.filter(b => getDeltaInfo(getEffectiveBusTimeStr(b), effDate).diff >= 0);
+      const nextBus = upcomingList[0] || null;
+      const backupBus = upcomingList[1] || null;
+      updateSlide1NearestBus(nextBus, effDate, backupBus);
+      const rows = buses.filter(b => !hidePassed || getDeltaInfo(getEffectiveBusTimeStr(b), effDate).diff >= -2);
       container.innerHTML = "";
       if (!rows.length) container.innerHTML = `<div class="empty-state">Tidak ada jadwal koridor tersisa untuk filter saat ini.</div>`;
       else rows.forEach(bus => container.appendChild(createBusRow(bus, effDate, nextBus && nextBus.id === bus.id)));
@@ -878,10 +1298,10 @@
     }
 
     function copyNextBusSummary() {
-      const eff = getEffectiveNow(), nBus = getCorridorBuses().find(b => getDeltaInfo(b.time, eff).diff >= 0);
+      const eff = getEffectiveNow(), nBus = getCorridorBuses().find(b => getDeltaInfo(getEffectiveBusTimeStr(b), eff).diff >= 0);
       if (!nBus) { showToast("Tidak ada bus koridor terdekat untuk disalin."); return; }
       const eta = computeIntermediateEta(nBus);
-      const text = `[Bus Radar] ${nBus.time} (${nBus.origin} → ${nBus.stops}) · ${getDeltaInfo(nBus.time, eff).label}${eta ? " · " + eta : ""}`;
+      const text = `[Bus Radar] ${nBus.time} (${nBus.origin} → ${nBus.stops}) · ${getDeltaInfo(getEffectiveBusTimeStr(nBus), eff).label}${eta ? " · " + eta : ""}`;
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).catch(() => {});
       showToast(`Disalin: ${nBus.time} (${nBus.origin} → ${nBus.stops})`);
     }
@@ -890,14 +1310,7 @@
       const dIdx = getEffectiveNow().getDay();
       showToast((dIdx === 0 || dIdx === 6) ? "Akhir pekan: periksa catatan '토,일,공휴일운행안함' pada rute antar-kota." : "Hari kerja: semua jadwal reguler beroperasi normal.");
     }
-    function switchToAlarmTab() { switchTab("alarm", document.querySelector('.dock-item[data-tab="alarm"]')); }
-    function armNextCorridorBus() {
-      const effDate = getEffectiveNow(), nextBus = getCorridorBuses().find(b => getDeltaInfo(b.time, effDate).diff >= 0);
-      if (!nextBus) { showToast("Tidak ada bus koridor tersisa."); return; }
-      state.alarms[nextBus.id] = { leadMin: Number(state.settings.leadMinutes) || 10, fired: false };
-      saveState(); showToast(`Alarm dipasang: ${nextBus.time} (${nextBus.origin} → ${nextBus.stops})`); renderAll(true);
-    }
-    function setCorridorDir(dir, btnEl) {
+        function setCorridorDir(dir, btnEl) {
       state.corridorDir = dir;
       document.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("active"));
       if (btnEl) btnEl.classList.add("active");
@@ -911,14 +1324,7 @@
     function initMapGestures() {
       const canvas = document.getElementById("hubMap"); if (!canvas) return;
       canvas.addEventListener("pointerdown", e => { if (e.target.closest("button")) return; mapState.dragging = true; mapState.startX = e.clientX - mapState.tx; mapState.startY = e.clientY - mapState.ty; });
-      window.addEventListener("pointermove", e => {
-        if (!mapState.dragging) return;
-        const maxPanX = 110 * mapState.scale;
-        const maxPanY = 90 * mapState.scale;
-        mapState.tx = Math.max(-maxPanX, Math.min(maxPanX, e.clientX - mapState.startX));
-        mapState.ty = Math.max(-maxPanY, Math.min(maxPanY, e.clientY - mapState.startY));
-        applyMapTransform();
-      });
+      window.addEventListener("pointermove", e => { if (!mapState.dragging) return; mapState.tx = Math.max(-110, Math.min(110, e.clientX - mapState.startX)); mapState.ty = Math.max(-90, Math.min(90, e.clientY - mapState.startY)); applyMapTransform(); });
       window.addEventListener("pointerup", () => { mapState.dragging = false; });
     }
     function setMapMode(mode) {
@@ -927,7 +1333,6 @@
       document.getElementById("mapModeRouteBtn")?.classList.toggle("active", mode === "ROUTE");
       if (mode === "ROUTE") showToast("Mode Rute: ketuk 2 simpul (Asal → Tujuan) di peta!");
       updateMapHud(getEffectiveNow());
-      renderAll(true);
     }
     function filterMapLine(lineKey, btnEl) {
       mapState.activeLine = lineKey;
@@ -935,10 +1340,10 @@
       const pMain = document.getElementById("svgPathMain"), pInter = document.getElementById("svgPathInter"), pJin = document.getElementById("svgPathJin"), pCity = document.getElementById("svgPathCity"), flow = document.getElementById("svgFlowActive");
       const dim = lineKey === "ALL" ? "0.88" : "0.22";
       [pMain, pInter, pJin, pCity].forEach(p => { if (p) p.setAttribute("opacity", dim); });
-      if (lineKey === "MAIN" || lineKey === "ALL") { pMain?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 104 76 L 200 137 L 296 76"); if (lineKey === "MAIN") selectHub("DAESO_STOP"); }
-      else if (lineKey === "INTER") { pInter?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 104 76 L 200 137 L 296 198"); selectHub("MUGEUK_TERM"); }
-      else if (lineKey === "JIN") { pJin?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 104 198 L 200 137 L 296 76"); selectHub("BOARD_JINCHEON"); }
-      else if (lineKey === "CITY") { pCity?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 104 198 L 296 198"); selectHub("BOARD_EUMSEONG_904"); }
+      if (lineKey === "MAIN" || lineKey === "ALL") { pMain?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 80 75 L 200 132 L 320 75"); if (lineKey === "MAIN") selectHub("DAESO_STOP"); }
+      else if (lineKey === "INTER") { pInter?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 80 75 L 200 132 L 312 189"); selectHub("MUGEUK_TERM"); }
+      else if (lineKey === "JIN") { pJin?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 88 189 L 200 132 L 320 75"); selectHub("BOARD_JINCHEON"); }
+      else if (lineKey === "CITY") { pCity?.setAttribute("opacity", "1"); flow?.setAttribute("d", "M 88 189 L 312 189"); selectHub("BOARD_GAMGOK_MUGEUK"); }
     }
     function onMapNodeTap(hubKey) {
       if (mapState.mode === "INSPECT") { selectHub(hubKey); return; }
@@ -946,6 +1351,7 @@
       else if (mapState.routeFrom !== hubKey) { mapState.routeTo = hubKey; }
       document.querySelectorAll(".map-node").forEach(n => { n.classList.toggle("active", n.dataset.hub === mapState.routeFrom); n.classList.toggle("dest-picked", n.dataset.hub === mapState.routeTo); });
       updateMapHud(getEffectiveNow()); renderRouteFromMapNodes(getEffectiveNow());
+      updateScheduleBusMarker(mapState.routeFrom, mapState.routeTo, getEffectiveNow());
     }
     function renderRouteFromMapNodes(effDate) {
       const listEl = document.getElementById("hubScheduleList"); if (!listEl || mapState.mode !== "ROUTE") return;
@@ -956,15 +1362,9 @@
         return ok1 && (b.stops.includes(toKw) || b.origin.includes(toKw) || b.hub === mapState.routeTo);
       }).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
       listEl.innerHTML = "";
-      if (!matched.length) { listEl.innerHTML = `<div class="empty-state">Tidak ada bus langsung ${escapeHtml(fromKw)} → ${escapeHtml(toKw)}. Cek Opsi Transit di bawah!</div>`; return; }
+      if (!matched.length) { listEl.innerHTML = `<div class="empty-state">Tidak ada bus langsung ${fromKw} → ${toKw}. Cek Opsi Transit di bawah!</div>`; return; }
       const nextBus = matched.find(b => getDeltaInfo(b.time, effDate).diff >= 0);
       matched.forEach(bus => listEl.appendChild(createBusRow(bus, effDate, nextBus && nextBus.id === bus.id)));
-    }
-    function getHubMatchedBuses(val) {
-      if (val === "SEONGBON") {
-        return BUS_SCHEDULES.filter(b => b.stops.includes("성본") || b.origin.includes("성본") || b.hub === "SEONGBON");
-      }
-      return BUS_SCHEDULES.filter(b => b.hub === val || b.board === val);
     }
     function updateMapHud(effDate) {
       const titleEl = document.getElementById("mapHudTitle"), subEl = document.getElementById("mapHudSub"), btnEl = document.getElementById("mapHudAlarmBtn");
@@ -975,18 +1375,17 @@
         titleEl.textContent = `Rute: ${fKw} → ${tKw}`;
         subEl.textContent = nx ? `Terdekat ${nx.time} · ${getDeltaInfo(nx.time, effDate).label}` : (mapState.routeTo ? "Gunakan opsi transit di bawah" : "Ketuk simpul tujuan pada peta");
         btnEl.style.display = nx ? "inline-flex" : "none";
-        if (nx) btnEl.onclick = () => toggleAlarm(nx.id);
         return;
       }
       const selVal = document.getElementById("hubSelect")?.value || "DAESO_STOP";
-      const matched = getHubMatchedBuses(selVal).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+      const matched = BUS_SCHEDULES.filter(b => b.hub === selVal || b.board === selVal).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
       const nx = matched.find(b => getDeltaInfo(b.time, effDate).diff >= 0);
       const hubName = document.getElementById("hubSelect")?.selectedOptions?.[0]?.text?.split("—")?.[0]?.trim() || selVal;
       if (nx) {
-        const d = getDeltaInfo(nx.time, effDate), eta = computeIntermediateEta(nx);
+        const d = getDeltaInfo(nx.time, effDate), eta = computeIntermediateEta(nx), posLbl = getBusPositionStageLabel(nx, effDate);
         titleEl.textContent = `${hubName} · Next ${nx.time} (${d.label})`;
-        subEl.textContent = `${nx.origin} → ${nx.stops}${eta ? " · " + eta : ""}`;
-        btnEl.style.display = "inline-flex"; btnEl.onclick = () => toggleAlarm(nx.id);
+        subEl.textContent = `${posLbl}${eta ? " · " + eta : ""}`;
+        btnEl.style.display = "inline-flex"; btnEl.onclick = () => toggleSaved(nx.id);
       } else {
         titleEl.textContent = `${hubName} · Tidak ada bus tersisa`;
         subEl.textContent = "Geser simulasi jam untuk mengecek jadwal besok pagi.";
@@ -1002,18 +1401,19 @@
       pCity.setAttribute("stroke-width", "3"); pCity.setAttribute("opacity", "0.85");
       if (hubKey === "DAESO_STOP" || hubKey === "SEONGBON") { pMain.setAttribute("stroke-width", "6.5"); pMain.setAttribute("opacity", "1"); }
       else if (hubKey === "MUGEUK_TERM") { pInter.setAttribute("stroke-width", "5.5"); pInter.setAttribute("opacity", "1"); }
-      else if (hubKey === "JINCHEON_LINE" || hubKey === "BOARD_JINCHEON") { pJin.setAttribute("stroke-width", "5.5"); pJin.setAttribute("opacity", "1"); }
-      else if (hubKey === "EUMSEONG_CITY" || hubKey === "BOARD_EUMSEONG_904" || hubKey === "BOARD_GAMGOK_MUGEUK") { pCity.setAttribute("stroke-width", "5"); pCity.setAttribute("opacity", "1"); }
+      else if (hubKey === "JINCHEON_LINE") { pJin.setAttribute("stroke-width", "5.5"); pJin.setAttribute("opacity", "1"); }
+      else if (hubKey === "EUMSEONG_CITY") { pCity.setAttribute("stroke-width", "5"); pCity.setAttribute("opacity", "1"); }
     }
     function selectHub(hubKey) {
       const selectEl = document.getElementById("hubSelect"); if (selectEl && selectEl.value !== hubKey) selectEl.value = hubKey;
       document.querySelectorAll(".map-node").forEach(n => n.classList.toggle("active", n.dataset.hub === hubKey));
-      highlightMapPaths(hubKey); renderHubSchedule(hubKey); updateMapHud(getEffectiveNow());
+      highlightMapPaths(hubKey); renderHubSchedule(hubKey);
+      updateScheduleBusMarker(hubKey, null, getEffectiveNow());
     }
     function renderHubSchedule(hubKey = null, effDate = getEffectiveNow()) {
       const selectEl = document.getElementById("hubSelect"), listEl = document.getElementById("hubScheduleList"); if (!selectEl || !listEl) return;
       const val = hubKey || selectEl.value;
-      const matched = getHubMatchedBuses(val).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
+      const matched = BUS_SCHEDULES.filter(b => b.hub === val || b.board === val).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
       listEl.innerHTML = "";
       if (!matched.length) { listEl.innerHTML = `<div class="empty-state">Jadwal tidak ditemukan untuk papan ini.</div>`; return; }
       const nextBus = matched.find(b => getDeltaInfo(b.time, effDate).diff >= 0);
@@ -1022,7 +1422,7 @@
     function renderTransitOptions(effDate = getEffectiveNow()) {
       const listEl = document.getElementById("transitResultList"); if (!listEl) return;
       const fromV = document.getElementById("transitFrom")?.value || "무극", toV = document.getElementById("transitTo")?.value || "청주";
-      const curMin = getCurrentFloatMinutes(effDate);
+      const curMin = effDate.getHours() * 60 + effDate.getMinutes();
       const direct = BUS_SCHEDULES.filter(b => (b.origin.includes(fromV) || b.stops.includes(fromV)) && (b.stops.includes(toV) || b.origin.includes(toV)) && timeToMinutes(b.time) >= curMin).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
       listEl.innerHTML = "";
       if (direct.length) { direct.slice(0, 4).forEach(b => listEl.appendChild(createBusRow(b, effDate, false))); return; }
@@ -1031,25 +1431,12 @@
       if (!feeders.length || !onwards.length) { listEl.innerHTML = `<div class="empty-state">Tidak ada opsi koneksi tersisa untuk jam ini.</div>`; return; }
       const f1 = feeders[0], f1Min = timeToMinutes(f1.time) + 15, conn = onwards.find(o => timeToMinutes(o.time) >= f1Min + 5) || onwards[0], waitMin = Math.max(0, timeToMinutes(conn.time) - f1Min);
       const card = document.createElement("div"); card.className = "transit-card";
-      card.innerHTML = `<strong>1) Feeder ${escapeHtml(f1.time)}</strong> (${escapeHtml(f1.origin)} → ${escapeHtml(f1.stops)}) · Tiba ~${formatMinutesToHHMM(f1Min)}<br><strong>2) Lanjutan ${escapeHtml(conn.time)}</strong> (${escapeHtml(conn.origin)} → ${escapeHtml(conn.stops)}) · Jeda ~${waitMin}m`;
+      card.innerHTML = `<strong>1) Feeder ${f1.time}</strong> (${f1.origin} → ${f1.stops}) · Tiba ~${formatMinutesToHHMM(f1Min)}<br><strong>2) Lanjutan ${conn.time}</strong> (${conn.origin} → ${conn.stops}) · Jeda ~${waitMin}m`;
       listEl.appendChild(card);
-    }
-    function renderAlarmSection(effDate = getEffectiveNow()) {
-      const alarmList = document.getElementById("alarmListContainer"), readinessBox = document.getElementById("readinessSummary"); if (!alarmList) return;
-      const alarmIds = Object.keys(state.alarms); alarmList.innerHTML = "";
-      const nextBus = getCorridorBuses().find(b => getDeltaInfo(b.time, effDate).diff >= 0), walkBuf = Number(state.settings.walkBuffer) || 0;
-      if (readinessBox) readinessBox.textContent = nextBus ? `Bus koridor berikutnya ${nextBus.time} (${nextBus.origin}→${nextBus.stops}) · Disarankan keluar ${formatMinutesToHHMM(timeToMinutes(nextBus.time) - walkBuf)} (buffer jalan ${walkBuf}m).` : "Tidak ada bus koridor berikutnya pada jam saat ini.";
-      if (!alarmIds.length) { alarmList.innerHTML = `<div class="empty-state">Belum ada alarm aktif.</div>`; return; }
-      alarmIds.forEach(id => {
-        const bus = BUS_SCHEDULES.find(b => b.id === id); if (!bus) return;
-        const delta = getDeltaInfo(bus.time, effDate), item = document.createElement("div"); item.className = "bus-item alarm-armed";
-        item.innerHTML = `<div class="bus-time-col"><div class="bus-time">${escapeHtml(bus.time)}</div><div class="bus-delta delta-soon">${escapeHtml(delta.label)}</div></div><div class="bus-route-col"><div class="bus-route-main">${escapeHtml(bus.origin)} → ${escapeHtml(bus.stops)}</div><div class="bus-route-sub">Pengingat ${escapeHtml(state.alarms[id].leadMin)} menit sebelum berangkat</div></div><div class="bus-right-col"><button class="btn-secondary" onclick="snoozeAlarm('${escapeHtml(bus.id)}', event)">+5m</button><button class="btn-secondary" style="padding:6px 9px;font-size:11px;" onclick="toggleAlarm('${escapeHtml(bus.id)}', event)">Hapus</button></div>`;
-        alarmList.appendChild(item);
-      });
     }
     function renderSavedSection(effDate = getEffectiveNow()) {
       const savedContainer = document.getElementById("savedListContainer"), noteInput = document.getElementById("tripNoteInput");
-      if (noteInput && document.activeElement !== noteInput && noteInput.value !== (state.tripNote || "")) noteInput.value = state.tripNote || "";
+      if (noteInput && noteInput.value !== (state.tripNote || "")) noteInput.value = state.tripNote || "";
       if (!savedContainer) return; savedContainer.innerHTML = "";
       if (!state.savedIds.length) { savedContainer.innerHTML = `<div class="empty-state">Belum ada jadwal favorit.</div>`; return; }
       state.savedIds.forEach(id => { const bus = BUS_SCHEDULES.find(b => b.id === id); if (bus) savedContainer.appendChild(createBusRow(bus, effDate, false)); });
@@ -1068,13 +1455,31 @@
         if (fromVal === "시외" && b.category !== "시외") return false;
         if (afterMin !== null && timeToMinutes(b.time) < afterMin) return false;
         if (!q) return true;
-        return `${b.time} ${b.origin} ${b.stops} ${b.note} ${b.category}`.toLowerCase().includes(q);
+        return `${b.time} ${b.busNo || ""} ${b.origin} ${b.stops} ${b.note} ${b.category}`.toLowerCase().includes(q);
       }).sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time));
       listEl.innerHTML = "";
       if (!results.length) { listEl.innerHTML = `<div class="empty-state">Tidak ada jadwal yang cocok.</div>`; return; }
       results.slice(0, 50).forEach(bus => listEl.appendChild(createBusRow(bus, effDate, false)));
     }
     function quickSearchKey(k) { const inp = document.getElementById("searchInput"); if (inp) { inp.value = k; renderSearchResults(); } }
+    function resetSearchFilters() {
+      const inp = document.getElementById("searchInput");
+      const fromEl = document.getElementById("fromFilter");
+      const afterEl = document.getElementById("afterTimeFilter");
+      if (inp) inp.value = "";
+      if (fromEl) fromEl.value = "ALL";
+      if (afterEl) afterEl.value = "";
+      renderSearchResults();
+    }
+    function exportCustomSchedules() {
+      const list = Array.isArray(state.customSchedules) ? state.customSchedules : [];
+      if (!list.length) { showToast("Belum ada jadwal tambahan tersimpan."); return; }
+      const lines = list.map(item => `${item.time} | ${item.origin} | ${item.stops} | ${item.note || "Jadwal Tambahan"}`);
+      const text = lines.join("\n");
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).catch(() => {});
+      showToast(`${list.length} jadwal tambahan disalin ke clipboard.`);
+    }
+
     function importQuickSchedules() {
       const box = document.getElementById("quickImportBox"); if (!box) return;
       const lines = box.value.split("\n").map(l => l.trim()).filter(Boolean); let added = 0;
@@ -1088,56 +1493,34 @@
           }
         }
       });
-      if (added > 0) { box.value = ""; showToast(`${added} jadwal ditambahkan.`); renderAll(true); } else showToast("Format: JAM | ASAL | TUJUAN | CATATAN");
+      if (added > 0) { box.value = ""; showToast(`${added} jadwal ditambahkan.`); renderAll(); } else showToast("Format: JAM | ASAL | TUJUAN | CATATAN");
     }
     function openPocketGlance() { document.getElementById("glanceOverlay")?.classList.add("open"); updatePocketGlance(getEffectiveNow()); }
     function closePocketGlance() { document.getElementById("glanceOverlay")?.classList.remove("open"); }
     function updatePocketGlance(effDate) {
       const ov = document.getElementById("glanceOverlay"); if (!ov || !ov.classList.contains("open")) return;
       const hh = String(effDate.getHours()).padStart(2, "0"), mm = String(effDate.getMinutes()).padStart(2, "0"), ss = String(effDate.getSeconds()).padStart(2, "0");
-      const gClk = document.getElementById("glanceClock"), gDt = document.getElementById("glanceDate"), gBox = document.getElementById("glanceNextBox"), gBtn = document.getElementById("glanceArmBtn");
+      const gClk = document.getElementById("glanceClock"), gDt = document.getElementById("glanceDate"), gBox = document.getElementById("glanceNextBox");
       if (gClk) gClk.textContent = `${hh}:${mm}:${ss}`;
       if (gDt) gDt.textContent = document.getElementById("liveDate")?.textContent || "";
-      const nextBus = getCorridorBuses().find(b => getDeltaInfo(b.time, effDate).diff >= 0);
-      if (gBox && gBtn) {
+      const nextBus = getCorridorBuses().find(b => getDeltaInfo(getEffectiveBusTimeStr(b), effDate).diff >= 0);
+      if (gBox) {
         if (nextBus) {
-          const d = getDeltaInfo(nextBus.time, effDate), eta = computeIntermediateEta(nextBus);
-          gBox.innerHTML = `<div style="font-size:22px;font-weight:900;">${escapeHtml(nextBus.time)} · ${escapeHtml(d.label)}</div><div style="font-size:13px;font-weight:700;margin-top:4px;">${escapeHtml(nextBus.origin)} → ${escapeHtml(nextBus.stops)}</div>${eta ? `<div class="tag-eta">${escapeHtml(eta)}</div>` : ""}`;
-          gBtn.onclick = () => toggleAlarm(nextBus.id);
+          const d = getDeltaInfo(getEffectiveBusTimeStr(nextBus), effDate), eta = computeIntermediateEta(nextBus);
+          gBox.innerHTML = `<div style="font-size:22px;font-weight:900;">${nextBus.time} · ${d.label}</div><div style="font-size:13px;font-weight:700;margin-top:4px;">${nextBus.origin} → ${nextBus.stops}</div>${eta ? `<div class="tag-eta">${eta}</div>` : ""}`;
         } else gBox.textContent = "Tidak ada bus koridor tersisa.";
       }
     }
     function updateBadges() {
-      const alarmCount = Object.keys(state.alarms).length, savedCount = state.savedIds.length;
-      const alarmBadge = document.getElementById("dockAlarmBadge"), savedBadge = document.getElementById("dockSavedBadge");
-      if (alarmBadge) { alarmBadge.textContent = String(alarmCount); alarmBadge.style.display = alarmCount > 0 ? "inline-flex" : "none"; }
+      const savedCount = state.savedIds.length;
+      const savedBadge = document.getElementById("dockSavedBadge");
       if (savedBadge) { savedBadge.textContent = String(savedCount); savedBadge.style.display = savedCount > 0 ? "inline-flex" : "none"; }
     }
-    function runAutomations(effDate) {
-      const curMin = getCurrentFloatMinutes(effDate);
-      if (state.settings.autoArmNext && Object.keys(state.alarms).length === 0) {
-        const nextBus = getCorridorBuses().find(b => timeToMinutes(b.time) >= curMin);
-        if (nextBus) { state.alarms[nextBus.id] = { leadMin: Number(state.settings.leadMinutes) || 10, fired: false }; saveState(); }
-      }
-      let changed = false;
-      Object.keys(state.alarms).forEach(busId => {
-        const bus = BUS_SCHEDULES.find(b => b.id === busId); if (!bus) return;
-        const alarmObj = state.alarms[busId], busMin = timeToMinutes(bus.time), minsLeft = busMin - curMin;
-        if (!alarmObj.fired && minsLeft <= (alarmObj.leadMin || 10) && minsLeft >= -1) { alarmObj.fired = true; changed = true; playBeep(); showToast(`Alarm Bus ${bus.time} (${bus.origin} → ${bus.stops})`); }
-        const elapsed = curMin - busMin;
-        if (state.settings.autoCleanAlarm && elapsed > 2 && elapsed <= 60) { delete state.alarms[busId]; changed = true; }
-      });
-      if (changed) saveState();
-    }
+    function runAutomations(effDate) {}
 
-    function getActiveTabName() {
-      return document.querySelector(".view-section.active")?.id?.replace("view-", "") || "home";
-    }
-
-    function tickClock(forceRender = false) {
+    function tickClock() {
       try {
-        const effDate = getEffectiveNow();
-        runAutomations(effDate);
+        const effDate = getEffectiveNow(); runAutomations(effDate);
         const hh = String(effDate.getHours()).padStart(2, "0"), mm = String(effDate.getMinutes()).padStart(2, "0"), ss = String(effDate.getSeconds()).padStart(2, "0");
         const clockEl = document.getElementById("liveClock"), dateEl = document.getElementById("liveDate"), dotEl = document.getElementById("clockDot"), dayPill = document.getElementById("dayStatusPill"), autoPill = document.getElementById("autoStatusPill");
         if (clockEl) clockEl.textContent = `${hh}:${mm}:${ss}`;
@@ -1148,79 +1531,52 @@
           if (dIdx === 0 || dIdx === 6) { dayPill.textContent = "Akhir Pekan · Cek Libur"; dayPill.className = "pill warn"; }
           else { dayPill.textContent = "Hari Kerja"; dayPill.className = "pill"; }
         }
-        if (autoPill) {
-          const activeAutos = [state.settings.autoArmNext, state.settings.autoCleanAlarm, state.settings.autoWeekendWarn, state.settings.peakDelayAdvisor].filter(Boolean).length;
-          autoPill.textContent = `Auto ${activeAutos}/4`;
-        }
         const nextHdrPill = document.getElementById("hdrNextBusPill");
-        if (nextHdrPill) { const nBus = getCorridorBuses().find(b => getDeltaInfo(b.time, effDate).diff >= 0); nextHdrPill.textContent = nBus ? `Next ${nBus.time} (${nBus.origin})` : "Habis"; }
+        if (nextHdrPill) { const nBus = getCorridorBuses().find(b => getDeltaInfo(getEffectiveBusTimeStr(b), effDate).diff >= 0); nextHdrPill.textContent = nBus ? `Next ${nBus.time} (${nBus.origin})` : "Habis"; }
 
-        updatePocketGlance(effDate);
-        updateBadges();
-        syncSliderWithSim();
-
-        const currentMinuteKey = `${effDate.getFullYear()}-${effDate.getMonth()}-${effDate.getDate()} ${hh}:${mm}`;
-        if (forceRender || currentMinuteKey !== lastRenderedMinuteKey) {
-          lastRenderedMinuteKey = currentMinuteKey;
-          const activeTab = getActiveTabName();
-          if (activeTab === "home") {
-            renderHomeCorridor(effDate);
-          } else if (activeTab === "map") {
-            if (mapState.mode === "ROUTE") renderRouteFromMapNodes(effDate); else renderHubSchedule(null, effDate);
-            updateMapHud(effDate);
-            renderTransitOptions(effDate);
-          } else if (activeTab === "alarm") {
-            renderAlarmSection(effDate);
-          } else if (activeTab === "saved") {
-            renderSavedSection(effDate);
-          } else if (activeTab === "search") {
-            renderSearchResults(effDate);
-          }
-        }
+        renderHomeCorridor(effDate);
+        updateSlide3InteractiveMap(effDate);
+        if (mapState.mode === "ROUTE") renderRouteFromMapNodes(effDate); else renderHubSchedule(null, effDate);
+        updateMapHud(effDate);
+        updateScheduleBusMarker(mapState.mode === "ROUTE" ? mapState.routeFrom : (document.getElementById("hubSelect")?.value || "MUGEUK_TERM"), mapState.mode === "ROUTE" ? mapState.routeTo : null, effDate);
+renderSavedSection(effDate); renderSearchResults(effDate); renderTransitOptions(effDate); updatePocketGlance(effDate); updateBadges();
       } catch (e) { console.error("Tick error:", e); }
     }
 
-    function renderAll(forceRender = true) { tickClock(forceRender); }
+    function renderAll() { tickClock(); }
     function switchTab(tabName, btnEl) {
       document.querySelectorAll(".view-section").forEach(sec => sec.classList.toggle("active", sec.id === `view-${tabName}`));
       document.querySelectorAll(".dock-item").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tabName));
-      renderAll(true);
+      renderAll();
     }
     function toggleSimDrawer() { state.simDrawerOpen = !state.simDrawerOpen; document.getElementById("simDrawer")?.classList.toggle("open", state.simDrawerOpen); saveState(); }
-    function shiftSimMinutes(delta) { state.simOffsetMinutes = (state.simOffsetMinutes || 0) + delta; syncSliderWithSim(); saveState(); renderAll(true); }
-    function resetSimTime() { state.simOffsetMinutes = 0; syncSliderWithSim(); saveState(); renderAll(true); }
-    function setSimFromSlider(val) { const targetMin = Number(val), now = new Date(); state.simOffsetMinutes = targetMin - (now.getHours() * 60 + now.getMinutes()); const lbl = document.getElementById("simSliderLabel"); if (lbl) lbl.textContent = `Geser: ${formatMinutesToHHMM(targetMin)}`; saveState(); renderAll(true); }
-    function bindSliderEvents() {
-      const slider = document.getElementById("simSlider");
-      if (!slider) return;
-      slider.addEventListener("pointerdown", () => { isSliderDragging = true; });
-      window.addEventListener("pointerup", () => { isSliderDragging = false; });
-      slider.addEventListener("change", () => { isSliderDragging = false; });
-    }
+    function shiftSimMinutes(delta) { state.simOffsetMinutes = (state.simOffsetMinutes || 0) + delta; syncSliderWithSim(); saveState(); renderAll(); }
+    function resetSimTime() { state.simOffsetMinutes = 0; syncSliderWithSim(); saveState(); renderAll(); }
+    function setSimFromSlider(val) { const targetMin = Number(val), now = new Date(); state.simOffsetMinutes = targetMin - (now.getHours() * 60 + now.getMinutes()); const lbl = document.getElementById("simSliderLabel"); if (lbl) lbl.textContent = `Geser: ${formatMinutesToHHMM(targetMin)}`; saveState(); renderAll(); }
     function syncSliderWithSim() {
       if (isSliderDragging) return;
       const eff = getEffectiveNow(), mins = eff.getHours() * 60 + eff.getMinutes(), slider = document.getElementById("simSlider"), lbl = document.getElementById("simSliderLabel");
-      if (slider && slider.value !== String(mins)) slider.value = String(mins);
+      if (slider) { slider.value = String(mins); slider.onpointerdown = () => { isSliderDragging = true; }; slider.onpointerup = () => { isSliderDragging = false; }; slider.onchange = () => { isSliderDragging = false; }; }
       if (lbl) lbl.textContent = `Geser: ${formatMinutesToHHMM(mins)}`;
     }
     function toggleTheme() { state.theme = state.theme === "dark" ? "light" : "dark"; applyTheme(); saveState(); }
     function applyTheme() { document.documentElement.setAttribute("data-theme", state.theme); const icon = document.getElementById("themeIcon"); if (icon) icon.innerHTML = state.theme === "dark" ? SVG_ICONS.sun : SVG_ICONS.moon; }
     function updateSettings() {
-      const leadEl = document.getElementById("leadMinutesInput"), walkEl = document.getElementById("walkBufferInput"), autoArmEl = document.getElementById("autoArmNextToggle"), autoCleanEl = document.getElementById("autoCleanAlarmToggle"), autoWkndEl = document.getElementById("autoWeekendWarnToggle"), peakEl = document.getElementById("peakDelayToggle");
-      if (leadEl) state.settings.leadMinutes = Math.max(1, Math.min(60, Number(leadEl.value) || 10));
+      const walkEl = document.getElementById("walkBufferInput"), autoWkndEl = document.getElementById("autoWeekendWarnToggle"), peakEl = document.getElementById("peakDelayToggle");
       if (walkEl) state.settings.walkBuffer = Math.max(0, Math.min(45, Number(walkEl.value) || 5));
-      if (autoArmEl) state.settings.autoArmNext = Boolean(autoArmEl.checked);
-      if (autoCleanEl) state.settings.autoCleanAlarm = Boolean(autoCleanEl.checked);
       if (autoWkndEl) state.settings.autoWeekendWarn = Boolean(autoWkndEl.checked);
       if (peakEl) state.settings.peakDelayAdvisor = Boolean(peakEl.checked);
-      saveState(); renderAll(true);
+      saveState(); renderAll();
     }
     function hydrateUI() {
       applyTheme();
       document.getElementById("simDrawer")?.classList.toggle("open", Boolean(state.simDrawerOpen));
-      bindSliderEvents();
       syncSliderWithSim();
       document.querySelectorAll(".seg-btn").forEach(b => b.classList.toggle("active", b.dataset.dir === state.corridorDir));
+      const anc = state.countdownAnchor || "SEONGBON";
+      document.querySelectorAll(".anchor-btn").forEach(b => b.classList.toggle("active", b.dataset.anchor === anc));
+      const ancLbl = document.getElementById("anchorLabel");
+      if (ancLbl) ancLbl.textContent = anc === "MUGEUK" ? "무극터미널" : (anc === "DAESO" ? "대소터미널" : "성본 (GS25)");
       const leadEl = document.getElementById("leadMinutesInput"), walkEl = document.getElementById("walkBufferInput"), autoArmEl = document.getElementById("autoArmNextToggle"), autoCleanEl = document.getElementById("autoCleanAlarmToggle"), autoWkndEl = document.getElementById("autoWeekendWarnToggle"), peakEl = document.getElementById("peakDelayToggle"), noteInput = document.getElementById("tripNoteInput");
       if (leadEl) leadEl.value = String(state.settings.leadMinutes);
       if (walkEl) walkEl.value = String(state.settings.walkBuffer);
@@ -1231,7 +1587,39 @@
       if (noteInput) noteInput.value = state.tripNote || "";
     }
 
-    mountStaticIcons(); initMapGestures(); hydrateUI(); renderAll(true); setInterval(() => tickClock(false), 1000);
+    mountStaticIcons(); initMapGestures(); startBusSmoothLoop();
+    setInterval(() => updateSlide3InteractiveMap(getEffectiveNow()), 160); hydrateUI(); renderAll(); setInterval(tickClock, 1000);
   </script>
+<script>
+  (function () {
+    const link = document.getElementById("pwaManifestLink");
+    if (link) {
+      const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="42" fill="#fee500"/><text x="96" y="122" font-size="92" text-anchor="middle">🚌</text></svg>`;
+      const iconUrl = "data:image/svg+xml," + encodeURIComponent(svgIcon);
+      const manifest = {
+        name: "Eumseong Bus Radar",
+        short_name: "Bus Radar",
+        start_url: "./",
+        scope: "./",
+        display: "standalone",
+        background_color: "#0c141d",
+        theme_color: "#0c141d",
+        icons: [{ src: iconUrl, sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" }]
+      };
+      link.href = URL.createObjectURL(new Blob([JSON.stringify(manifest)], { type: "application/manifest+json" }));
+    }
+    if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+      const swCode = `
+        self.addEventListener("install", e => self.skipWaiting());
+        self.addEventListener("activate", e => e.waitUntil(self.clients.claim()));
+        self.addEventListener("fetch", event => {
+          event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+        });
+      `;
+      const swUrl = URL.createObjectURL(new Blob([swCode], { type: "application/javascript" }));
+      navigator.serviceWorker.register(swUrl).catch(() => {});
+    }
+  })();
+</script>
 </body>
 </html>
